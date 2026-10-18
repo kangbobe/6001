@@ -1,0 +1,42 @@
+[
+  {
+    "max_depth": 10,
+    "min_samples_leaf": 20,
+    "weight": null
+  },
+  {
+    "max_depth": 10,
+    "min_samples_leaf": 20,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": 10,
+    "min_samples_leaf": 5,
+    "weight": null
+  },
+  {
+    "max_depth": 10,
+    "min_samples_leaf": 5,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "weight": null
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 5,
+    "weight": null
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 5,
+    "weight": "balanced"
+  }
+]

@@ -1,0 +1,48 @@
+dummy config 1/1 CV AP=0.11697
+dummy complete; selected config 0, validation AP=0.11701
+logistic_regression config 1/8 CV AP=0.33700
+logistic_regression config 2/8 CV AP=0.33781
+logistic_regression config 3/8 CV AP=0.34187
+logistic_regression config 4/8 CV AP=0.34057
+logistic_regression config 5/8 CV AP=0.34159
+logistic_regression config 6/8 CV AP=0.34058
+logistic_regression config 7/8 CV AP=0.34155
+logistic_regression config 8/8 CV AP=0.34057
+logistic_regression complete; selected config 2, validation AP=0.35887
+decision_tree config 1/12 CV AP=0.29453
+decision_tree config 2/12 CV AP=0.28559
+decision_tree config 3/12 CV AP=0.29119
+decision_tree config 4/12 CV AP=0.28404
+decision_tree config 5/12 CV AP=0.33450
+decision_tree config 6/12 CV AP=0.33168
+decision_tree config 7/12 CV AP=0.32513
+decision_tree config 8/12 CV AP=0.33007
+decision_tree config 9/12 CV AP=0.33579
+decision_tree config 10/12 CV AP=0.33273
+decision_tree config 11/12 CV AP=0.30549
+decision_tree config 12/12 CV AP=0.30470
+decision_tree complete; selected config 8, validation AP=0.36983
+random_forest config 1/8 CV AP=0.35767
+random_forest config 2/8 CV AP=0.35732
+random_forest config 3/8 CV AP=0.35723
+random_forest config 4/8 CV AP=0.35769
+random_forest config 5/8 CV AP=0.35772
+random_forest config 6/8 CV AP=0.35881
+random_forest config 7/8 CV AP=0.35094
+random_forest config 8/8 CV AP=0.35037
+random_forest complete; selected config 5, validation AP=0.38651
+mlp config 1/8 CV AP=0.33267
+mlp config 2/8 CV AP=0.31496
+mlp config 3/8 CV AP=0.33113
+mlp config 4/8 CV AP=0.31808
+mlp config 5/8 CV AP=0.24592
+mlp config 6/8 CV AP=0.24755
+mlp config 7/8 CV AP=0.24095
+mlp config 8/8 CV AP=0.24592
+mlp complete; selected config 0, validation AP=0.37719
+              model  selected_config  cv_ap_mean  cv_ap_std  refit_n_iter  refit_convergence_warning    n  positive_rate  threshold  average_precision  roc_auc  accuracy  balanced_accuracy  precision   recall       f1  brier_score  log_loss   tn   fp   fn  tp
+              dummy                0    0.116973   0.000064           NaN                      False 9042        0.11701        0.5           0.117010 0.500000  0.882990           0.500000   0.000000 0.000000 0.000000     0.103318  0.360924 7984    0 1058   0
+logistic_regression                2    0.341870   0.009334          60.0                      False 9042        0.11701        0.5           0.358873 0.720968  0.894382           0.579424   0.703557 0.168242 0.271548     0.089374  0.315221 7909   75  880 178
+      decision_tree                8    0.335788   0.008440           NaN                      False 9042        0.11701        0.5           0.369833 0.724776  0.894714           0.582072   0.702290 0.173913 0.278788     0.088389  0.340777 7906   78  874 184
+      random_forest                5    0.358810   0.008535           NaN                      False 9042        0.11701        0.5           0.386507 0.743810  0.788764           0.689342   0.290766 0.559546 0.382676     0.176520  0.540959 6540 1444  466 592
+                mlp                0    0.332668   0.015226         185.0                      False 9042        0.11701        0.5           0.377185 0.737591  0.894161           0.581759   0.689139 0.173913 0.277736     0.087558  0.309214 7901   83  874 184

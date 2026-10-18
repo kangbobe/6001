@@ -1,0 +1,62 @@
+[
+  {
+    "max_depth": 4,
+    "min_samples_leaf": 100,
+    "weight": null
+  },
+  {
+    "max_depth": 4,
+    "min_samples_leaf": 100,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": 4,
+    "min_samples_leaf": 20,
+    "weight": null
+  },
+  {
+    "max_depth": 4,
+    "min_samples_leaf": 20,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": 8,
+    "min_samples_leaf": 100,
+    "weight": null
+  },
+  {
+    "max_depth": 8,
+    "min_samples_leaf": 100,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": 8,
+    "min_samples_leaf": 20,
+    "weight": null
+  },
+  {
+    "max_depth": 8,
+    "min_samples_leaf": 20,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 100,
+    "weight": null
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 100,
+    "weight": "balanced"
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "weight": null
+  },
+  {
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "weight": "balanced"
+  }
+]

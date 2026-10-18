@@ -1,0 +1,13 @@
+# CPython 3.12; exact full environment in requirements.lock.txt.
+numpy==2.4.6
+pandas==3.0.3
+scikit-learn==1.8.0
+matplotlib==3.11.2
+joblib
+threadpoolctl
+nbformat
+nbclient
+nbconvert
+ipykernel
+python-docx
+pytest

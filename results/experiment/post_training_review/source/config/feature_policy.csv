@@ -1,0 +1,19 @@
+field,role,main_model_use,transformation_or_reason
+age,numeric,include,Age in years; standardize for LR and MLP
+job,categorical,include,One-hot; retain unknown
+marital,categorical,include,One-hot
+education,categorical,include,One-hot; retain unknown
+default,categorical,include,One-hot credit-default flag
+balance,numeric,include,Average yearly balance in EUR; retain negatives; standardize for LR and MLP
+housing,categorical,include,One-hot housing-loan flag
+loan,categorical,include,One-hot personal-loan flag
+pdays,numeric_source,derive_only,Replace by has_previous_contact=(pdays>=0); exclude exact elapsed days
+previous,numeric,include,Count before current campaign; standardize for LR and MLP
+poutcome,categorical,include,Previous campaign outcome; unknown is not equated to no prior contact
+contact,current_campaign,exclude,Recorded final contact channel is not a verified pre-campaign plan
+day,current_campaign,exclude,Final contact day is unavailable at campaign start
+month,current_campaign,exclude,Final contact month is unavailable at campaign start
+duration,current_campaign,exclude,Call duration is known after the call
+campaign,current_campaign,exclude,Includes current campaign final contact count
+y,target,exclude_from_X,no=0; yes=1
+row_id,alignment_key,exclude_from_X,Original zero-based data-record position

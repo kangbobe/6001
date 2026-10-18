@@ -1,0 +1,41 @@
+{
+  "source": "UCI Bank Marketing legacy bank-full.csv",
+  "raw_shape": [
+    45211,
+    17
+  ],
+  "raw_sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+  "raw_missing_cells": 0,
+  "full_data_exact_17_column_duplicate_rows": 0,
+  "partition_sizes": {
+    "train": 27126,
+    "val": 9042,
+    "test": 9043
+  },
+  "cross_partition_unlabelled_profile_collisions": {
+    "train_val_exact_input_profiles": 0,
+    "train_test_exact_input_profiles": 0,
+    "val_test_exact_input_profiles": 0
+  },
+  "train": {
+    "rows": 27126,
+    "target_counts": {
+      "no": 23953,
+      "yes": 3173
+    },
+    "positive_rate": 0.11697264616972647,
+    "exact_16_input_duplicates": 0,
+    "exact_17_column_duplicates": 0,
+    "11_source_feature_duplicates": 575,
+    "negative_balance": 2280,
+    "pdays_never_contacted": 22235,
+    "pdays_zero_valid_contact": 0,
+    "never_contacted_but_previous_positive": 0,
+    "contacted_but_previous_zero": 0,
+    "never_contacted_but_outcome_known": 0,
+    "contacted_but_outcome_unknown": 5
+  },
+  "policy": "Keep all records; unknown remains a category; no clipping or deduplication",
+  "limitation": "No customer ID; matching profiles are not proof of duplicate customers. Random record splits do not prove future generalization.",
+  "test_used_for_modeling_or_target_association": false
+}

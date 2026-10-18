@@ -1,0 +1,29 @@
+{
+  "frozen": false,
+  "owner": "",
+  "frozen_at": "",
+  "decision_rule": "D: record the threshold selection rule before opening the test partition.",
+  "feature_policy": "pre_campaign_history_flag_v1",
+  "models": [
+    "dummy",
+    "logistic_regression",
+    "decision_tree",
+    "random_forest",
+    "mlp"
+  ],
+  "thresholds": {
+    "dummy": 0.5,
+    "logistic_regression": 0.5,
+    "decision_tree": 0.5,
+    "random_forest": 0.5,
+    "mlp": 0.5
+  },
+  "pipeline_sha256": {
+    "dummy": "REPLACE_WITH_SHA256",
+    "logistic_regression": "REPLACE_WITH_SHA256",
+    "decision_tree": "REPLACE_WITH_SHA256",
+    "random_forest": "REPLACE_WITH_SHA256",
+    "mlp": "REPLACE_WITH_SHA256"
+  },
+  "notes": "Example only. D must choose and record all four model thresholds, replace every hash with the matching pipeline.joblib SHA256, set owner and timezone-aware frozen_at, then set frozen=true. Dummy threshold is fixed at 0.5."
+}

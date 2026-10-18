@@ -1,0 +1,9 @@
+diagnostic,n,interpretation,share_of_train
+pdays_negative,22235,pdays is the source used to derive the binary history flag,0.8196932831969328
+pdays_nonnegative,4891,pdays is the source used to derive the binary history flag,0.18030671680306717
+pdays_negative_and_previous_positive,0,descriptive cross-field combination,0.0
+pdays_nonnegative_and_previous_zero,0,descriptive cross-field combination,0.0
+pdays_negative_and_outcome_known,0,descriptive cross-field combination,0.0
+pdays_nonnegative_and_outcome_unknown,5,descriptive cross-field combination,0.00018432500184325002
+previous_zero_and_outcome_known,0,descriptive cross-field combination,0.0
+previous_positive_and_outcome_unknown,5,descriptive cross-field combination,0.00018432500184325002

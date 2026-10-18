@@ -1,0 +1,98 @@
+{
+  "captured_at_utc": "2026-10-18T08:14:05.568813+00:00",
+  "phase": "post_training_review",
+  "training_time_provenance": false,
+  "limitations": [
+    "The phase is caller-declared and is not independently verified.",
+    "A post-training capture cannot prove which source bytes were used during training."
+  ],
+  "source_files": [
+    {
+      "path": "config/dataset_lock.json",
+      "bytes": 1579,
+      "sha256": "bb236382901a75abe669d0efa4a1e4a15deb470c5f3684b693b0bdce25860965"
+    },
+    {
+      "path": "config/feature_policy.csv",
+      "bytes": 1327,
+      "sha256": "200b69f0df768cd6fafda55b0694f11085816642a8c45e562eb60127fa747d2f"
+    },
+    {
+      "path": "requirements.lock.txt",
+      "bytes": 1291,
+      "sha256": "e9bc6d5cc403f1e1f634ccbb213fd5447b4929e33cb12799ac9bd5f0e8247d96"
+    },
+    {
+      "path": "scripts/train.py",
+      "bytes": 662,
+      "sha256": "27bf6aba49b1d1946e719bb4dbfb7424e44636b49483fa966e759180c9dad711"
+    },
+    {
+      "path": "src/__init__.py",
+      "bytes": 54,
+      "sha256": "8572a9649619c92e5c15f39cbf93d97a70f4ce333c9a2699ca06c039089f7e29"
+    },
+    {
+      "path": "src/data.py",
+      "bytes": 6633,
+      "sha256": "24fbf300c2fc708cf4a2ad66498b2392a2464a40334958fd4664d15cc8c8f187"
+    },
+    {
+      "path": "src/eda.py",
+      "bytes": 17043,
+      "sha256": "5bdb94e4a7d83472fc98508fe6617944950839692a3e9b7f4e832c9dff8d1a30"
+    },
+    {
+      "path": "src/final_evaluation.py",
+      "bytes": 10332,
+      "sha256": "cade0dbc46130fe5c15c220ceab17f663272428bac1ce797ddadfdaafc17ff30"
+    },
+    {
+      "path": "src/metrics.py",
+      "bytes": 1837,
+      "sha256": "120b8156fa9c030bf3c9509f57e194fdc7ff9eaa666d30ecb1731579aa24b587"
+    },
+    {
+      "path": "src/model_plots.py",
+      "bytes": 2881,
+      "sha256": "11d8fcf569eb9c0785e2e78baf89a9cefa1a70f454aae3ebf80e89e5ad09c436"
+    },
+    {
+      "path": "src/models.py",
+      "bytes": 2468,
+      "sha256": "ceb4a32f721d98e4f03bc303c47f3f09c9ca72b0490081c36b15a8564058561c"
+    },
+    {
+      "path": "src/preprocessing.py",
+      "bytes": 2411,
+      "sha256": "5b4874448358720dd920428b0696d67069524bf1c6e082cf5bfccb7e581a2275"
+    },
+    {
+      "path": "src/provenance.py",
+      "bytes": 3168,
+      "sha256": "da38eced6b2547fe6964257b62fe1e96f47f748ad2d67460df17b9ac634db989"
+    },
+    {
+      "path": "src/training.py",
+      "bytes": 9932,
+      "sha256": "5725b5949d7c1b400bb5ddb8332729f88e276d747fff9bb519b41e30d3a5446e"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/raw/bank-full.csv",
+      "bytes": 4610348,
+      "sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d"
+    },
+    {
+      "path": "data/splits/split_indices.json",
+      "bytes": 260185,
+      "sha256": "01909fad4322dbda27b72151e79c734dd6346e8d6a10bf1f89d01bd9c5f34aa2"
+    },
+    {
+      "path": "data/splits/split_manifest.csv",
+      "bytes": 504308,
+      "sha256": "56d283f977937adf4f71b50102dbf3f9c15f923c68a3a7026da19680b1f1f1e1"
+    }
+  ]
+}

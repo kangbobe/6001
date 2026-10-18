@@ -1,0 +1,14 @@
+{
+  "completed_utc": "2026-10-18T07:39:15.562420+00:00",
+  "wall_seconds": 278.1293494999991,
+  "cv_recommended_family": "random_forest",
+  "test_evaluated": false,
+  "models": [
+    "dummy",
+    "logistic_regression",
+    "decision_tree",
+    "random_forest",
+    "mlp"
+  ],
+  "status": "complete"
+}

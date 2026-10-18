@@ -1,0 +1,82 @@
+CA6001 – Applied AI Algorithms Project
+Technical Report Template (Maximum 10 Pages, excluding cover page)
+
+Cover Page
+Project Title:Student Names:
+
+
+1. Introduction
+Overview of the problem domain
+Motivation
+Objective
+Scope
+
+2. Problem Definition
+Formal problem statement
+Task type (classification, regression, clustering, search, optimization, RL, etc.)
+Constraints, assumptions, and special considerations
+
+3. Dataset Description
+Dataset source
+Key features / variables
+Dataset structure, size, and format
+Preprocessing steps (cleaning, normalization, encoding, etc.)
+Selected exploratory analysis (tables/figures allowed)
+
+4. Algorithm Selection and Rationale
+Describe the chosen AI algorithms and justify why they fit the problem.
+Include:
+Theoretical foundations (brief explanation)
+Strengths & limitations
+Why this algorithm is suitable for your dataset/task
+Alternative algorithms considered 
+
+5. Methodology
+Explain your full pipeline clearly:
+Data preprocessing workflow
+Model architecture or algorithmic logic
+Parameter and hyperparameter choices
+Evaluation strategy (train/test split, cross-validation, etc.)
+Tools and libraries used (e.g., Python, PyTorch, scikit-learn)
+You may include:
+Workflow diagrams
+Model architecture diagrams
+Code blocks
+
+6. Implementation
+Summary of core functions
+Key implementation decisions
+Code for main algorithm
+Important outputs or screenshots
+Do not paste full code here, notebooks can be submitted (optional)
+
+7. Results and Evaluation
+Present and interpret your results using relevant metrics.
+Examples:
+Classification → Accuracy, Precision, Recall, F1
+Regression → MAE, RMSE
+Clustering → Silhouette score
+Search → Path cost, nodes expanded
+Optimization → Convergence curves
+RL → Reward progression
+Include:
+Tables
+Charts
+Comparisons between algorithms
+Error analysis and interpretation
+
+8. Discussion & Insights
+Reflect on your findings:
+What worked well?
+What difficulties arose?
+What do the results reveal about the chosen algorithm(s)?
+Limitations of your approach
+Possible future improvements
+
+9. Conclusion
+Summary of the main outcomes
+Key insights gained
+Reflection on AI algorithm selection, implementation, and evaluation
+
+10. References
+Use APA citation style.Include all datasets, papers, libraries, and tools used.

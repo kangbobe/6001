@@ -1,0 +1,99 @@
+{
+  "raw_16_inputs": {
+    "columns": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "day",
+      "month",
+      "duration",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome"
+    ],
+    "n_rows": 27126,
+    "n_unique_profiles": 27126,
+    "duplicate_excess_rows": 0,
+    "rows_in_duplicate_groups": 0,
+    "duplicate_group_count": 0,
+    "largest_duplicate_group": 1
+  },
+  "raw_17_columns_including_target": {
+    "columns": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "day",
+      "month",
+      "duration",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome",
+      "y"
+    ],
+    "n_rows": 27126,
+    "n_unique_profiles": 27126,
+    "duplicate_excess_rows": 0,
+    "rows_in_duplicate_groups": 0,
+    "duplicate_group_count": 0,
+    "largest_duplicate_group": 1
+  },
+  "raw_11_source_features_including_pdays": {
+    "columns": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "pdays",
+      "previous",
+      "poutcome"
+    ],
+    "n_rows": 27126,
+    "n_unique_profiles": 26551,
+    "duplicate_excess_rows": 575,
+    "rows_in_duplicate_groups": 924,
+    "duplicate_group_count": 349,
+    "largest_duplicate_group": 10
+  },
+  "policy_11_profile_pdays_replaced_by_flag": {
+    "columns": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "has_previous_contact",
+      "previous",
+      "poutcome"
+    ],
+    "n_rows": 27126,
+    "n_unique_profiles": 26544,
+    "duplicate_excess_rows": 582,
+    "rows_in_duplicate_groups": 937,
+    "duplicate_group_count": 355,
+    "largest_duplicate_group": 10
+  },
+  "interpretation": "Repeated profiles are row-level matches, not evidence of repeated customers; no rows are removed.",
+  "feature_policy": "pre_campaign_history_flag_v1"
+}

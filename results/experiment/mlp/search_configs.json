@@ -1,0 +1,62 @@
+[
+  {
+    "hidden_layer_sizes": [
+      32
+    ],
+    "alpha": 0.01,
+    "weight": null
+  },
+  {
+    "hidden_layer_sizes": [
+      32
+    ],
+    "alpha": 0.01,
+    "weight": "balanced"
+  },
+  {
+    "hidden_layer_sizes": [
+      32
+    ],
+    "alpha": 0.0001,
+    "weight": null
+  },
+  {
+    "hidden_layer_sizes": [
+      32
+    ],
+    "alpha": 0.0001,
+    "weight": "balanced"
+  },
+  {
+    "hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "alpha": 0.01,
+    "weight": null
+  },
+  {
+    "hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "alpha": 0.01,
+    "weight": "balanced"
+  },
+  {
+    "hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "alpha": 0.0001,
+    "weight": null
+  },
+  {
+    "hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "alpha": 0.0001,
+    "weight": "balanced"
+  }
+]

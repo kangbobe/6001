@@ -1,0 +1,44 @@
+[
+  {
+    "config_id": 0,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.14554190001217648,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 0,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.14574290002929047,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 0,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.02325520000886172,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  }
+]

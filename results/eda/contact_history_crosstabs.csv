@@ -1,0 +1,13 @@
+comparison,field_a_status,field_b_status,n,share_of_train
+pdays_vs_previous,pdays_negative,previous_positive,0,0.0
+pdays_vs_previous,pdays_negative,previous_zero,22235,0.8196932831969328
+pdays_vs_previous,pdays_nonnegative,previous_positive,4891,0.18030671680306717
+pdays_vs_previous,pdays_nonnegative,previous_zero,0,0.0
+pdays_vs_poutcome,pdays_negative,outcome_known,0,0.0
+pdays_vs_poutcome,pdays_negative,outcome_unknown,22235,0.8196932831969328
+pdays_vs_poutcome,pdays_nonnegative,outcome_known,4886,0.1801223918012239
+pdays_vs_poutcome,pdays_nonnegative,outcome_unknown,5,0.00018432500184325002
+previous_vs_poutcome,previous_positive,outcome_known,4886,0.1801223918012239
+previous_vs_poutcome,previous_positive,outcome_unknown,5,0.00018432500184325002
+previous_vs_poutcome,previous_zero,outcome_known,0,0.0
+previous_vs_poutcome,previous_zero,outcome_unknown,22235,0.8196932831969328

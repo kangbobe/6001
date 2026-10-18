@@ -1,0 +1,60 @@
+{
+  "model": "dummy",
+  "config_id": 0,
+  "selected_params": {
+    "weight": null
+  },
+  "selection_rule": "highest mean training CV AP; exact ties lowest config_id",
+  "cv_average_precision": 0.11697264616972647,
+  "cv_ap_std": 6.385205365954931e-05,
+  "refit_partition": "train",
+  "fit_n": 27126,
+  "input_features": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "transformed_feature_count": 33,
+  "classes": [
+    0,
+    1
+  ],
+  "refit_attempts": [
+    {
+      "max_iter": null,
+      "n_iter": null,
+      "fit_seconds": 0.10195149999344721,
+      "convergence_warning": false,
+      "warnings": [],
+      "loss_curve": []
+    }
+  ],
+  "serialization_check_max_abs_error": 0.0,
+  "validation_metrics_at_0_5": {
+    "n": 9042,
+    "positive_rate": 0.11700951117009512,
+    "threshold": 0.5,
+    "average_precision": 0.11700951117009512,
+    "roc_auc": 0.5,
+    "accuracy": 0.8829904888299049,
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "brier_score": 0.10331828682485875,
+    "log_loss": 0.36092400613127407,
+    "tn": 7984,
+    "fp": 0,
+    "fn": 1058,
+    "tp": 0
+  },
+  "test_evaluated": false
+}

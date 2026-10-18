@@ -1,0 +1,506 @@
+[
+  {
+    "config_id": 0,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.03783019998809323,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 0,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.03872899996349588,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 0,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.037812899972777814,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 1,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.0371319999685511,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 1,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.037589100014884025,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 1,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.037294099980499595,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 2,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.038020199979655445,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 2,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.038899000035598874,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 2,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.036773999978322536,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 3,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.03681960003450513,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 3,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.03846120001981035,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 3,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.03671300003770739,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 4,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04730740003287792,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 4,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04893310001352802,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 4,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04750029998831451,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 5,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04688109998824075,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 5,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04789759998675436,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 5,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04573270003311336,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 6,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.047615199990104884,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 6,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.048120099992956966,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 6,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04770300001837313,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 7,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04763240000465885,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 7,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.04923689999850467,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 7,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.0517639999743551,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 8,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.05774559994461015,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 8,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.055067599983885884,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 8,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.05600790004245937,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 9,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.05344739998690784,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 9,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.0541403999668546,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 9,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.05581670004175976,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 10,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.06877519999397919,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 10,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.06705059995874763,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 10,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.06692030001431704,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 11,
+    "fold_id": 0,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.06447439995827153,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 11,
+    "fold_id": 1,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.06343800004106015,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  },
+  {
+    "config_id": 11,
+    "fold_id": 2,
+    "attempts": [
+      {
+        "max_iter": null,
+        "n_iter": null,
+        "fit_seconds": 0.06410150002921,
+        "convergence_warning": false,
+        "warnings": [],
+        "loss_curve": []
+      }
+    ]
+  }
+]

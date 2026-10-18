@@ -1,0 +1,3 @@
+# Preserve exact bytes across Windows/Linux clones: data locks and experiment
+# receipts identify raw data, source snapshots and artifacts by SHA256.
+* -text

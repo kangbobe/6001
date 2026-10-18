@@ -1,0 +1,46 @@
+{
+  "partition": "train",
+  "n": 27126,
+  "row_id_source": "raw.index / load_partition(\"train\").index",
+  "source_features": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "policy_features": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "has_previous_contact",
+    "previous",
+    "poutcome"
+  ],
+  "feature_policy": "pre_campaign_history_flag_v1",
+  "target_encoding": {
+    "no": 0,
+    "yes": 1
+  },
+  "unknown_values_retained": true,
+  "negative_and_extreme_values_retained": true,
+  "test_target_relationships_computed": false,
+  "figures": [
+    "fig1_target_distribution.png",
+    "fig2_age_balance_distribution.png",
+    "fig3_unknown_frequency.png",
+    "fig4_category_subscription_rates.png",
+    "fig5_contact_history_consistency.png"
+  ]
+}

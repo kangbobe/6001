@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+work/
+
+# Local discussion records are not part of the public project handoff.
+notes/PRO_DISCUSSION*.txt
+notes/PRO_REVIEW_*.txt
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

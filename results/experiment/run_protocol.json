@@ -1,0 +1,225 @@
+{
+  "started_utc": "2026-10-18T07:34:37.616486+00:00",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.6.0",
+    "matplotlib": "3.11.2"
+  },
+  "random_state": 42,
+  "cv": "StratifiedKFold(n_splits=3, shuffle=True, random_state=42)",
+  "primary_metric": "average_precision",
+  "development_threshold": 0.5,
+  "weight_rule": "compute_sample_weight balanced using only each fit fold; evaluation unweighted",
+  "mlp_retry_rule": "300->600 from scratch for every max_iter convergence warning; same seed",
+  "pdays_rule": "has_previous_contact only; exact elapsed days excluded",
+  "search_spaces": {
+    "logistic_regression": [
+      {
+        "C": 0.01,
+        "weight": null
+      },
+      {
+        "C": 0.01,
+        "weight": "balanced"
+      },
+      {
+        "C": 0.1,
+        "weight": null
+      },
+      {
+        "C": 0.1,
+        "weight": "balanced"
+      },
+      {
+        "C": 1.0,
+        "weight": null
+      },
+      {
+        "C": 1.0,
+        "weight": "balanced"
+      },
+      {
+        "C": 10.0,
+        "weight": null
+      },
+      {
+        "C": 10.0,
+        "weight": "balanced"
+      }
+    ],
+    "decision_tree": [
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 100,
+        "weight": null
+      },
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 100,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 20,
+        "weight": null
+      },
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 20,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": 8,
+        "min_samples_leaf": 100,
+        "weight": null
+      },
+      {
+        "max_depth": 8,
+        "min_samples_leaf": 100,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": 8,
+        "min_samples_leaf": 20,
+        "weight": null
+      },
+      {
+        "max_depth": 8,
+        "min_samples_leaf": 20,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 100,
+        "weight": null
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 100,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 20,
+        "weight": null
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 20,
+        "weight": "balanced"
+      }
+    ],
+    "random_forest": [
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 20,
+        "weight": null
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 20,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 5,
+        "weight": null
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 5,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 20,
+        "weight": null
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 20,
+        "weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 5,
+        "weight": null
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 5,
+        "weight": "balanced"
+      }
+    ],
+    "mlp": [
+      {
+        "hidden_layer_sizes": [
+          32
+        ],
+        "alpha": 0.01,
+        "weight": null
+      },
+      {
+        "hidden_layer_sizes": [
+          32
+        ],
+        "alpha": 0.01,
+        "weight": "balanced"
+      },
+      {
+        "hidden_layer_sizes": [
+          32
+        ],
+        "alpha": 0.0001,
+        "weight": null
+      },
+      {
+        "hidden_layer_sizes": [
+          32
+        ],
+        "alpha": 0.0001,
+        "weight": "balanced"
+      },
+      {
+        "hidden_layer_sizes": [
+          64,
+          32
+        ],
+        "alpha": 0.01,
+        "weight": null
+      },
+      {
+        "hidden_layer_sizes": [
+          64,
+          32
+        ],
+        "alpha": 0.01,
+        "weight": "balanced"
+      },
+      {
+        "hidden_layer_sizes": [
+          64,
+          32
+        ],
+        "alpha": 0.0001,
+        "weight": null
+      },
+      {
+        "hidden_layer_sizes": [
+          64,
+          32
+        ],
+        "alpha": 0.0001,
+        "weight": "balanced"
+      }
+    ]
+  },
+  "train_n": 27126,
+  "validation_n": 9042,
+  "test_evaluated": false,
+  "interpretation": "Retrospective pre-campaign screening simulation; record-level random-split generalization"
+}

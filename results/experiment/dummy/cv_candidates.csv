@@ -1,0 +1,2 @@
+model,config_id,params,mean_average_precision,std_average_precision,mean_roc_auc,std_roc_auc,mean_f1,std_f1,mean_precision,std_precision,mean_recall,std_recall,mean_accuracy,std_accuracy,mean_balanced_accuracy,std_balanced_accuracy,mean_train_ap,std_train_ap,mean_fit_seconds,std_fit_seconds,unconverged_folds
+dummy,0,"{""weight"": null}",0.11697264616972647,6.385205365954931e-05,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.8830273538302736,6.385205365950923e-05,0.5,0.0,0.11697264616972645,3.192602682977866e-05,0.10484666668344289,0.07066035434268418,0

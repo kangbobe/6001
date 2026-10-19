@@ -1,3 +1,5 @@
+> **历史阶段快照 / Historical stage snapshot.** 下方正文保留原样，描述当时的 validation 或 preflight 状态；“尚未最终测试”“待批准”及其中命令不是当前操作要求。最终 Test 现已完成，本轮只整理保存材料并修复安全审计入口，没有重跑该阶段。当前说明见 [交付入口](../DELIVERY_README.md)和[复现说明](MEMBER_D_REPRODUCIBILITY.md)；最终结果见 [FINAL_TEST_REPORT.md](FINAL_TEST_REPORT.md)。原文的执行次数、测试与复现结论由当时日志支持，不是本轮新执行证据。
+
 # Final evaluation preflight hardening
 
 Date: 2026-10-19. Starting commit: `29657cf6d7bb2e8c3b65c13c1ab545c264b1fd2a` on `member-d/validation-integration`.

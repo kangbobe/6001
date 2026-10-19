@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "n": 9043,
+  "n_positive": 1058,
+  "max_absolute_metric_difference": 1.1102230246251565e-16,
+  "output": "/Users/lanmeidanta/Documents/Codex/2026-10-19/you-are-a-principal-machine-learning/work/6001/../final-evaluation-run/independent_metrics_audit.json",
+  "model_deltas": {
+    "dummy": {
+      "average_precision": -1.2939236002443288e-05,
+      "roc_auc": 0.0,
+      "f1": 0.0
+    },
+    "logistic_regression": {
+      "average_precision": -0.010967010081659678,
+      "roc_auc": -0.0001959942030381745,
+      "f1": -0.007525300706779536
+    },
+    "decision_tree": {
+      "average_precision": -0.014459460798520063,
+      "roc_auc": -0.014593976773676798,
+      "f1": -0.019195632948612595
+    },
+    "random_forest": {
+      "average_precision": -0.012941695594986202,
+      "roc_auc": -0.007362984637168779,
+      "f1": -0.01936426273505365
+    },
+    "mlp": {
+      "average_precision": -0.02927121075742628,
+      "roc_auc": -0.015043728189594652,
+      "f1": -0.026700802730885154
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "full_staged_check_exit_code": 2,
+  "diagnostics": [
+    {
+      "path": "results/member_d/final_test/figures/test_confusion_matrices.svg",
+      "kind": "trailing whitespace.",
+      "count": 971,
+      "preserved_input_sha256_unchanged": true
+    },
+    {
+      "path": "results/member_d/final_test/figures/test_roc_pr.svg",
+      "kind": "trailing whitespace.",
+      "count": 12964,
+      "preserved_input_sha256_unchanged": true
+    },
+    {
+      "path": "results/member_d/final_test/figures/validation_test_comparison.svg",
+      "kind": "trailing whitespace.",
+      "count": 1251,
+      "preserved_input_sha256_unchanged": true
+    }
+  ],
+  "new_code_and_document_check_exit_code": 0,
+  "disposition": "Retain byte-identical historical generated files; no whitespace normalization of preserved evidence."
+}

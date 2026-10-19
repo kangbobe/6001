@@ -1,0 +1,15 @@
+{
+  "base_commit": "29657cf6d7bb2e8c3b65c13c1ab545c264b1fd2a",
+  "intended_files": [
+    "README.md",
+    "notes/FINAL_PREFLIGHT_HARDENING.md",
+    "notes/MEMBER_D_REPRODUCIBILITY.md",
+    "src/final_evaluation.py",
+    "tests/conftest.py",
+    "tests/test_final_evaluation.py",
+    "tests/test_final_preflight.py",
+    "tests/test_validation.py"
+  ],
+  "unexpected_files": [],
+  "independent_review": "No blocking issue in all eight intended changes; no protected artifacts modified."
+}

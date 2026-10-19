@@ -1,0 +1,94 @@
+{
+  "status": "complete",
+  "stage": "post_test_reporting",
+  "created_utc": "2026-10-19T08:21:27.940262+00:00",
+  "generator_script_sha256": "f3bd85403d54d1d324f3ac9749c14666eadde4f0768c2bd90c0578a73b1712e1",
+  "source_sha256": {
+    "results/experiment/final_test/frozen_protocol.json": "708f9d126723ffa71961fe2d81924157c5c3c12d95c3d39c9dd43658bf73de4f",
+    "results/experiment/final_test/test_metrics.csv": "5162c994dbe033d3047c6fd7eb2cf493e4dbfac47014b40202dd9c256c9e040d",
+    "results/experiment/final_test/test_predictions.csv": "78c03be3b7dece1b2ce920b51298c70a79e3fa4ae3a73e8d02808fc3122fc1f6",
+    "results/experiment/final_test/evaluation_receipt.json": "82c46be05cdf9a976d5e738fb92133a1d7cdc5422e54acc32392eb59223b1398",
+    "results/member_d/evaluation/metrics.csv": "0efe958abc7fc30bcd583c3acaf7ebb7d5315a8e0ccb9d2b1f87b1a01404566b"
+  },
+  "source_files_unchanged": true,
+  "outputs_sha256": {
+    "confusion_matrices.csv": "0d3419c314fa67dcb1b2daa55049fb6d89833c0e468df8fe9d4fa9a8da3740c2",
+    "figures/test_confusion_matrices.png": "16347f81a28286f309d34431c20d2133a37d3aac7aa9a2f23ace17b4b1b56c0c",
+    "figures/test_confusion_matrices.svg": "0f72d300f2a9437f206de372601f34225359b348c5a2e598128d177ce48a56f4",
+    "figures/test_roc_pr.png": "7de179c8838766980a7410aa0e317c27abeb061ad612ff9b1eaeec2e0b5321e7",
+    "figures/test_roc_pr.svg": "64762bfb3141e1c9692c76731c03d2bd904f882199d0da97c8fef9ff5a3ca307",
+    "figures/validation_test_comparison.png": "d5fa7b00568f67b2999026dd8129efa8d77e858d744ed04a8cc0b434053c3b96",
+    "figures/validation_test_comparison.svg": "63e5e53a3d746e63487983ea631a8913c968d792b1da69ecbb850e0316d2dc64",
+    "pr_points.csv": "a19afd0a4137ee0eda705d8761932c23ce19e0f8208dc4c24e0ba21e7b08e11c",
+    "roc_points.csv": "b1ae482ed2db6d53737f840551d8dd9072296a066f30e1a14c48cb627ca57083",
+    "validation_test_comparison.csv": "47bfc1752bcc066e65e22a28ce947038eebe4d668875168cc87cc0f504a7ba9c"
+  },
+  "positive_class": 1,
+  "thresholds": {
+    "dummy": 0.5,
+    "logistic_regression": 0.16796284539462858,
+    "decision_tree": 0.2586600685192234,
+    "random_forest": 0.6112421038019304,
+    "mlp": 0.1896097366729046
+  },
+  "cv_recommended_family_unchanged": "random_forest",
+  "test_n": 9043,
+  "validation_n": 9042,
+  "checks": [
+    {
+      "model": "dummy",
+      "n": 9043,
+      "threshold": 0.5,
+      "saved_decisions_match_frozen_threshold": true,
+      "all_16_metrics_independently_reconciled": true,
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "model": "logistic_regression",
+      "n": 9043,
+      "threshold": 0.16796284539462858,
+      "saved_decisions_match_frozen_threshold": true,
+      "all_16_metrics_independently_reconciled": true,
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "model": "decision_tree",
+      "n": 9043,
+      "threshold": 0.2586600685192234,
+      "saved_decisions_match_frozen_threshold": true,
+      "all_16_metrics_independently_reconciled": true,
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "model": "random_forest",
+      "n": 9043,
+      "threshold": 0.6112421038019304,
+      "saved_decisions_match_frozen_threshold": true,
+      "all_16_metrics_independently_reconciled": true,
+      "maximum_absolute_metric_difference": 0.0
+    },
+    {
+      "model": "mlp",
+      "n": 9043,
+      "threshold": 0.1896097366729046,
+      "saved_decisions_match_frozen_threshold": true,
+      "all_16_metrics_independently_reconciled": true,
+      "maximum_absolute_metric_difference": 0.0
+    }
+  ],
+  "models_loaded": false,
+  "model_inference_run": false,
+  "training_run": false,
+  "raw_dataset_read": false,
+  "threshold_search_run": false,
+  "data_access": "Only the five saved final-evaluation and validation-metric files listed above.",
+  "curve_notes": "All score cutoffs are descriptive ROC/PR curve coordinates, not proposed decisions. ROC starts at an infinite cutoff; the last PR point has no cutoff.",
+  "comparison_notes": "Deltas are final test minus selected validation. Count deltas reflect partition sizes as well as rates. Higher is better for AP, ROC AUC, precision, recall, F1, accuracy and balanced accuracy; lower is better for Brier score and log loss.",
+  "limitations": "Validation F1 was optimized on the same validation sample. Differences are descriptive, without confidence intervals or significance tests. Historical training-time source provenance remains incomplete; this derivation does not reconstruct it. Feature importance is not causality.",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "matplotlib": "3.11.2",
+    "sklearn": "1.8.0"
+  }
+}

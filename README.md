@@ -1,5 +1,29 @@
 # CA6001 — Bank Marketing Prediction
 
+**最终 Test 已完成，仅可从保存结果复核或重新生成展示材料。** 模型、数据划分、冻结协议、阈值和原始最终结果保持不变；不要再次运行最终评估，也不要据 Test 结果重选模型或阈值。
+
+当前交付入口是 [DELIVERY_README.md](DELIVERY_README.md)，包括完整 D 支持材料的范围、包版本及哈希的查找方式、旧结果子集的缺项和证据边界。[最终报告](notes/FINAL_TEST_REPORT.md)保留实际 Test 指标和解释；[当前复现说明](notes/MEMBER_D_REPRODUCIBILITY.md)仅给出保存结果审计和展示材料派生命令。
+
+从仓库根目录使用原依赖环境，指定尚不存在的新文件：
+
+```bash
+python scripts/audit_saved_results.py --root . --output work/audit-check-001.json
+```
+
+安全入口要求显式 `--output`，拒绝覆盖已有文件或写入冻结产物目录。历史 `independent_metrics_audit.py` 及其 JSON 仅作为原始证据保留，不作为当前执行入口。需要重新生成展示材料时，使用 `scripts/report_final_results.py` 和新的输出目录；本轮交付修复没有重新运行验证分析、模型推理或绘图。
+
+## 当前材料与证据边界
+
+- [验证报告](notes/MEMBER_D_REPORT.md)、[验证方法](notes/MEMBER_D_METHODS.md)、[D 审计](notes/MEMBER_D_AUDIT.md)和[preflight 加固说明](notes/FINAL_PREFLIGHT_HARDENING.md)均为历史阶段快照。validation 预测、阈值扫描、错误分析及置换重要性仍是 **validation** 证据。
+- 五个模型的保存预测、最终指标及四个原始最终文件位于 `results/experiment/`；D 验证材料位于 `results/member_d/evaluation/`、`errors/`、`importance/`，最终展示材料和历史 QA 位于 `results/member_d/final_test/`。
+- 历史日志记载 145 项 pre-test 检查通过、1 项旧测试排除，以及一次最终评估的调用与完成。本轮不将这些记载称为重新执行的检查；日志也不能证明不存在未记录执行，或还原原训练时源码。
+- 本仓库和新包是 **Member D 支持材料及其配套仓库快照**。完整小组报告、slides 和录音仍需成员共同整合，不因交付包包含结果而视为完成。
+
+旧 A/B/C [HANDOFF_D.md](notes/HANDOFF_D.md)保持原字节，包含当时尚未执行 Test 的操作说明；它是历史交接快照，不是当前执行指南。下方同样保留原 A/B/C README 正文，以便核对历史。
+
+<details>
+<summary>历史快照：A/B/C 开发与 D 交接（正文原样保留，命令不可作为当前执行步骤）</summary>
+
 本项目完成 **A 数据分析/预处理、B 逻辑回归/决策树、C 随机森林/MLP**，并提供 D 可接手的模型和预测。原 CA6003 仓库保持只读。GitHub 仓库：https://github.com/raederhans/6001 。
 
 研究问题：使用客户属性和历史营销信息，进行**营销启动前筛选的离线模拟**。不是营销因果效果估计，也不承诺真实部署时的字段可得性。数据采用官方 legacy `bank-full.csv`，45,211 条记录；只使用11个原始来源字段，`pdays` 进一步替换为“是否曾联系”的标志。
@@ -100,27 +124,11 @@ py -3.12 -m venv .venv
 
 复查结论和修改记录见 [PRO_REVIEW_RESOLUTION.md](notes/PRO_REVIEW_RESOLUTION.md)。模型建议不是训练证据，报告中的数字来自本地CSV/JSON。Pro 原始对话、截图、本地环境和临时文件不上传；方法、修订和本地验证证据已保留。数据引用和许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。`.gitattributes` 保留文件字节，避免跨系统换行转换破坏数据锁和实验文件校验。
 
-## Member D — validation evaluation and approval handoff (2026-10-19)
 
-Member D's validation-only work is in [report support](notes/MEMBER_D_REPORT.md),
-[methods](notes/MEMBER_D_METHODS.md), [audit](notes/MEMBER_D_AUDIT.md), and
-[reproduction instructions](notes/MEMBER_D_REPRODUCIBILITY.md).
-The validation delivery at `29657cf` preserved the original A/B/C artifacts and source. `results/member_d/` contains
-threshold searches, model comparisons, ROC/PR curves, confusion matrices, feature-group
-errors, repeated AP permutation importance, and identity/QA receipts.
+</details>
 
-`config/final_protocol.proposed.json` contains the actual proposed thresholds but remains
-**frozen=false, pending explicit approval**. No real test evaluation has been run.
-The original `final_protocol.draft.json` is preserved as the A/B/C handoff record.
-Validation results must not be described as final-test performance.
+## Member D 的阶段关系
 
-The D validation CLI uses a selective reader and never parses real test records.
-Its fresh reproduction commands and the explicitly excluded legacy full-table-loader
-test are documented in `notes/MEMBER_D_REPRODUCIBILITY.md`.
+Validation 交付版本为 `29657cf`；后续 preflight 加固提交为 `ab46dfa`。`config/final_protocol.proposed.json` 和 `final_protocol.draft.json` 是保留的历史版本；批准并冻结的独立协议为 `config/final_protocol.json`。四个最终文件在 `results/experiment/final_test/` 原样保留。Random Forest 的已保存 Test AP 为 0.373566、ROC-AUC 为 0.736447、F1 为 0.401537；这不是本轮新推理结果。
 
-The subsequent [final preflight hardening](notes/FINAL_PREFLIGHT_HARDENING.md) automatically
-checks the approved data, splits, five pipelines, validation configuration/receipt,
-and protocol consistency before any test loading. It requires explicit recorded
-approval and preserves the one-shot mechanism. The proposal and selected thresholds
-remain unchanged and unfrozen. Historical validation reproduction uses a separate
-checkout at `29657cf`; historical receipts have not been rewritten.
+原有 [SHA256 清单](results/member_d/final_test/SHA256SUMS.json)和所有 receipt 不回填。本轮修改前的八份文档原字节保存于 [文档快照清单](notes/history/delivery-v1/SNAPSHOT_MANIFEST.json)，用于核对旧清单中的文档身份；当前交付有独立清单。具体修复及实际检查见 [交付修复记录](notes/DELIVERY_REPAIR.md)。

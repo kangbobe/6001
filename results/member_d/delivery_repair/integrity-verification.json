@@ -1,0 +1,622 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-19T09:36:17.430775+00:00",
+  "scope": "Delivery repair only; file hashes and local file links, no inference or validation analysis",
+  "baseline_commit": "ab46dfa884bd929f72ed76d50628cee1defab389",
+  "actual_focused_tests": {
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "python": "3.12.14",
+    "log": "safe-audit-tests.log",
+    "junit": "safe-audit-tests.xml"
+  },
+  "repair_baseline_file_count": 157,
+  "unchanged_repair_baseline_file_count": 156,
+  "planned_document_exception": {
+    "results/member_d/final_test/qa/README.md": {
+      "before": "43661251d64b6cc6d58d5809b52943d432b946dadcf49614f68766ccfe682f42",
+      "after": "d6fa43d93c57a0c874354f8d32409b68d49877ef8430ff8414c895f7b214576a"
+    }
+  },
+  "historical_pretest_protected_files_verified_now": {
+    "count": 99,
+    "source": "results/member_d/final_test/qa/pretest-verification.json",
+    "all_match": true
+  },
+  "original_main_ABC_inventory_verified_now": {
+    "commit": "bf53eab1ef5f1fb5729af38660b76af54497bdab",
+    "count": 99,
+    "paths": [
+      "config/dataset_lock.json",
+      "config/feature_policy.csv",
+      "config/final_protocol.draft.json",
+      "config/final_protocol.example.json",
+      "data/raw/bank-full.csv",
+      "data/raw/bank-names.txt",
+      "data/source/provenance.json",
+      "data/splits/split_indices.json",
+      "data/splits/split_manifest.csv",
+      "notebooks/01_A_data.html",
+      "notebooks/01_A_data.ipynb",
+      "notebooks/02_B_baselines.html",
+      "notebooks/02_B_baselines.ipynb",
+      "notebooks/03_C_advanced.html",
+      "notebooks/03_C_advanced.ipynb",
+      "notes/HANDOFF_D.md",
+      "notes/METHODOLOGY.md",
+      "notes/PRO_REVIEW_RESOLUTION.md",
+      "references/CA6001 Report Template.docx",
+      "references/template_extracted.txt",
+      "requirements.lock.txt",
+      "results/eda/category_subscription_rates.csv",
+      "results/eda/contact_history_crosstabs.csv",
+      "results/eda/contact_history_diagnostics.csv",
+      "results/eda/duplicate_profile_summary.json",
+      "results/eda/eda_manifest.json",
+      "results/eda/fig1_target_distribution.png",
+      "results/eda/fig2_age_balance_distribution.png",
+      "results/eda/fig3_unknown_frequency.png",
+      "results/eda/fig4_category_subscription_rates.png",
+      "results/eda/fig5_contact_history_consistency.png",
+      "results/eda/numeric_profile.csv",
+      "results/eda/source_audit.json",
+      "results/eda/target_distribution.csv",
+      "results/eda/unknown_frequency.csv",
+      "results/experiment/completion.json",
+      "results/experiment/cv_manifest.csv",
+      "results/experiment/decision_tree/cv_candidates.csv",
+      "results/experiment/decision_tree/cv_folds.csv",
+      "results/experiment/decision_tree/feature_names.json",
+      "results/experiment/decision_tree/fit_histories.json",
+      "results/experiment/decision_tree/model_metadata.json",
+      "results/experiment/decision_tree/pipeline.joblib",
+      "results/experiment/decision_tree/search_configs.json",
+      "results/experiment/decision_tree/validation_predictions.csv",
+      "results/experiment/development_summary.csv",
+      "results/experiment/dummy/cv_candidates.csv",
+      "results/experiment/dummy/cv_folds.csv",
+      "results/experiment/dummy/feature_names.json",
+      "results/experiment/dummy/fit_histories.json",
+      "results/experiment/dummy/model_metadata.json",
+      "results/experiment/dummy/pipeline.joblib",
+      "results/experiment/dummy/search_configs.json",
+      "results/experiment/dummy/validation_predictions.csv",
+      "results/experiment/figures/B_baselines_tuning.png",
+      "results/experiment/figures/C_advanced_tuning.png",
+      "results/experiment/figures/MLP_training_loss.png",
+      "results/experiment/logistic_regression/cv_candidates.csv",
+      "results/experiment/logistic_regression/cv_folds.csv",
+      "results/experiment/logistic_regression/feature_names.json",
+      "results/experiment/logistic_regression/fit_histories.json",
+      "results/experiment/logistic_regression/model_metadata.json",
+      "results/experiment/logistic_regression/pipeline.joblib",
+      "results/experiment/logistic_regression/search_configs.json",
+      "results/experiment/logistic_regression/validation_predictions.csv",
+      "results/experiment/mlp/cv_candidates.csv",
+      "results/experiment/mlp/cv_folds.csv",
+      "results/experiment/mlp/feature_names.json",
+      "results/experiment/mlp/fit_histories.json",
+      "results/experiment/mlp/model_metadata.json",
+      "results/experiment/mlp/pipeline.joblib",
+      "results/experiment/mlp/search_configs.json",
+      "results/experiment/mlp/validation_predictions.csv",
+      "results/experiment/post_training_review/manifest.json",
+      "results/experiment/post_training_review/source/config/dataset_lock.json",
+      "results/experiment/post_training_review/source/config/feature_policy.csv",
+      "results/experiment/post_training_review/source/requirements.lock.txt",
+      "results/experiment/post_training_review/source/scripts/train.py",
+      "results/experiment/post_training_review/source/src/__init__.py",
+      "results/experiment/post_training_review/source/src/data.py",
+      "results/experiment/post_training_review/source/src/eda.py",
+      "results/experiment/post_training_review/source/src/final_evaluation.py",
+      "results/experiment/post_training_review/source/src/metrics.py",
+      "results/experiment/post_training_review/source/src/model_plots.py",
+      "results/experiment/post_training_review/source/src/models.py",
+      "results/experiment/post_training_review/source/src/preprocessing.py",
+      "results/experiment/post_training_review/source/src/provenance.py",
+      "results/experiment/post_training_review/source/src/training.py",
+      "results/experiment/posthoc_verification.json",
+      "results/experiment/random_forest/cv_candidates.csv",
+      "results/experiment/random_forest/cv_folds.csv",
+      "results/experiment/random_forest/feature_names.json",
+      "results/experiment/random_forest/fit_histories.json",
+      "results/experiment/random_forest/model_metadata.json",
+      "results/experiment/random_forest/pipeline.joblib",
+      "results/experiment/random_forest/search_configs.json",
+      "results/experiment/random_forest/validation_predictions.csv",
+      "results/experiment/run_protocol.json",
+      "results/experiment/training.log"
+    ],
+    "all_match": true
+  },
+  "original_final_files_sha256": {
+    "results/experiment/final_test/evaluation_receipt.json": "82c46be05cdf9a976d5e738fb92133a1d7cdc5422e54acc32392eb59223b1398",
+    "results/experiment/final_test/frozen_protocol.json": "708f9d126723ffa71961fe2d81924157c5c3c12d95c3d39c9dd43658bf73de4f",
+    "results/experiment/final_test/test_metrics.csv": "5162c994dbe033d3047c6fd7eb2cf493e4dbfac47014b40202dd9c256c9e040d",
+    "results/experiment/final_test/test_predictions.csv": "78c03be3b7dece1b2ce920b51298c70a79e3fa4ae3a73e8d02808fc3122fc1f6"
+  },
+  "historical_audit_script_sha256": "61723df994a573b2dbcd3a30d12e7d32600ee0e31ab5275a313a13eefae7383b",
+  "historical_audit_json_sha256": "a2957421e081546345c15527907f9069da7edf223c9db75cbcc5a92159d31cfb",
+  "safe_entry_sha256": "fee48a7e123a6f4e0d7f6a2216621b35a14216a0dc2efedcb9c6c4a6fa388560",
+  "safe_tests_sha256": "d33199b350670c54299680aec62e827c1855b94e5b853f0164a5dbea198b1882",
+  "document_snapshots_verified": 8,
+  "old_final_manifest_entries_verified": 42,
+  "old_manifest_document_snapshot_paths": [
+    "README.md",
+    "notes/FINAL_TEST_REPORT.md",
+    "notes/MEMBER_D_REPRODUCIBILITY.md",
+    "results/member_d/final_test/qa/README.md"
+  ],
+  "all_three_old_archives_unchanged": true,
+  "old_archives_sha256": {
+    "6001-member-d.zip": "12c424fbfb28d8414907f0bc62f5677d164c76bef343a8c161492d08d0ebdcbe",
+    "pre-test-audit.zip": "3772db3ae1c464cb214bb1680c0370a0e3a4d1f131ab6fa528b24390ed44e4e4",
+    "CA6001-final-evaluation.zip": "4321c43de21d7d57e62b1907d30c77cf0270cb7608f16bec8dc4e0daf31b20b6"
+  },
+  "relative_file_link_count": 82,
+  "broken_relative_file_links": [],
+  "relative_file_links": [
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/TEMPLATE_REQUIREMENTS.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/DELIVERY_REPAIR.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/HANDOFF_D.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/FINAL_PREFLIGHT_HARDENING.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/MEMBER_D_METHODS.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/MEMBER_D_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/MEMBER_D_AUDIT.md",
+      "exists": true
+    },
+    {
+      "source": "DELIVERY_README.md",
+      "target": "notes/history/delivery-v1/SNAPSHOT_MANIFEST.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/MEMBER_D_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/MEMBER_D_METHODS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/MEMBER_D_AUDIT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/FINAL_PREFLIGHT_HARDENING.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/HANDOFF_D.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/HANDOFF_D.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/HANDOFF_D.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/PRO_REVIEW_RESOLUTION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "THIRD_PARTY_NOTICES.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/member_d/final_test/SHA256SUMS.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/history/delivery-v1/SNAPSHOT_MANIFEST.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "notes/DELIVERY_REPAIR.md",
+      "exists": true
+    },
+    {
+      "source": "notes/CA6001_ABC_Technical_Draft.md",
+      "target": "../results/eda/fig1_target_distribution.png",
+      "exists": true
+    },
+    {
+      "source": "notes/CA6001_ABC_Technical_Draft.md",
+      "target": "../results/eda/fig4_category_subscription_rates.png",
+      "exists": true
+    },
+    {
+      "source": "notes/DELIVERY_REPAIR.md",
+      "target": "history/delivery-v1/SNAPSHOT_MANIFEST.json",
+      "exists": true
+    },
+    {
+      "source": "notes/DELIVERY_REPAIR.md",
+      "target": "../results/member_d/delivery_repair/git-status-before.txt",
+      "exists": true
+    },
+    {
+      "source": "notes/DELIVERY_REPAIR.md",
+      "target": "../results/member_d/delivery_repair/scope-inventory.json",
+      "exists": true
+    },
+    {
+      "source": "notes/DELIVERY_REPAIR.md",
+      "target": "../results/member_d/delivery_repair/safe-audit-tests.log",
+      "exists": true
+    },
+    {
+      "source": "notes/DELIVERY_REPAIR.md",
+      "target": "../results/member_d/delivery_repair/safe-audit-tests.xml",
+      "exists": true
+    },
+    {
+      "source": "notes/DELIVERY_REPAIR.md",
+      "target": "../results/member_d/delivery_repair/integrity-verification.json",
+      "exists": true
+    },
+    {
+      "source": "notes/DELIVERY_REPAIR.md",
+      "target": "../DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_PREFLIGHT_HARDENING.md",
+      "target": "../DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_PREFLIGHT_HARDENING.md",
+      "target": "MEMBER_D_REPRODUCIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_PREFLIGHT_HARDENING.md",
+      "target": "FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "DELIVERY_REPAIR.md",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/member_d/final_test/figures/test_roc_pr.png",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/member_d/final_test/figures/test_confusion_matrices.png",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/member_d/final_test/figures/validation_test_comparison.png",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/member_d/final_test/SHA256SUMS.json",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "history/delivery-v1/SNAPSHOT_MANIFEST.json",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/experiment/final_test/test_metrics.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/experiment/final_test/test_predictions.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/member_d/final_test/validation_test_comparison.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../config/final_protocol.json",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/member_d/final_test/derivation_receipt.json",
+      "exists": true
+    },
+    {
+      "source": "notes/FINAL_TEST_REPORT.md",
+      "target": "../results/member_d/final_test/qa/independent_metrics_audit.json",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_AUDIT.md",
+      "target": "../DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_AUDIT.md",
+      "target": "MEMBER_D_REPRODUCIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_AUDIT.md",
+      "target": "FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_METHODS.md",
+      "target": "../DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_METHODS.md",
+      "target": "MEMBER_D_REPRODUCIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_METHODS.md",
+      "target": "FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "MEMBER_D_REPRODUCIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../config/final_protocol.proposed.json",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/evaluation/metrics.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/evaluation/threshold_sweep.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/evaluation/figures/roc_pr.png",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/evaluation/figures/confusion_matrices.png",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/errors/error_groups.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/errors/model_disagreements.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/errors/row_errors.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/errors/figures/error_groups.png",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/importance/permutation_summary.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/importance/permutation_repeats.csv",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "../results/member_d/importance/figures/permutation_importance.png",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPORT.md",
+      "target": "MEMBER_D_METHODS.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "target": "../DELIVERY_README.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "target": "FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "target": "DELIVERY_REPAIR.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "target": "history/delivery-v1/SNAPSHOT_MANIFEST.json",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "target": "FINAL_TEST_REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "notes/MEMBER_D_REPRODUCIBILITY.md",
+      "target": "FINAL_PREFLIGHT_HARDENING.md",
+      "exists": true
+    },
+    {
+      "source": "results/member_d/final_test/qa/README.md",
+      "target": "../../../../notes/DELIVERY_REPAIR.md",
+      "exists": true
+    },
+    {
+      "source": "results/member_d/final_test/qa/README.md",
+      "target": "../SHA256SUMS.json",
+      "exists": true
+    },
+    {
+      "source": "results/member_d/final_test/qa/README.md",
+      "target": "../../../../notes/history/delivery-v1/SNAPSHOT_MANIFEST.json",
+      "exists": true
+    },
+    {
+      "source": "results/member_d/final_test/qa/README.md",
+      "target": "../../../../DELIVERY_README.md",
+      "exists": true
+    }
+  ],
+  "external_network_links_checked": false,
+  "not_executed_this_repair": [
+    "training",
+    "hyperparameter_tuning",
+    "calibration",
+    "model_or_threshold_selection",
+    "real_test_inference",
+    "evaluate_test.py",
+    "validation_analysis",
+    "reporting_or_figure_regeneration",
+    "full_historical_test_suite",
+    "push",
+    "merge"
+  ],
+  "historical_only": [
+    "Earlier 92/145 test suites and legacy exclusion",
+    "validation analysis, repetition and permutation runs",
+    "pretest runtime access guards",
+    "final invocation/freeze chronology",
+    "figure visual inspection"
+  ],
+  "unproven_historical_facts": [
+    "absence of unrecorded execution",
+    "exact source bytes used at original training time"
+  ],
+  "staged_whitespace_check": {
+    "full_staged_check_exit_code": 2,
+    "diagnostics": [
+      {
+        "path": "results/member_d/final_test/figures/test_confusion_matrices.svg",
+        "kind": "trailing whitespace.",
+        "count": 971,
+        "preserved_input_sha256_unchanged": true
+      },
+      {
+        "path": "results/member_d/final_test/figures/test_roc_pr.svg",
+        "kind": "trailing whitespace.",
+        "count": 12964,
+        "preserved_input_sha256_unchanged": true
+      },
+      {
+        "path": "results/member_d/final_test/figures/validation_test_comparison.svg",
+        "kind": "trailing whitespace.",
+        "count": 1251,
+        "preserved_input_sha256_unchanged": true
+      }
+    ],
+    "new_code_and_document_check_exit_code": 0,
+    "disposition": "Retain byte-identical historical generated files; no whitespace normalization of preserved evidence."
+  }
+}

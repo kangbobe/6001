@@ -1,0 +1,6 @@
+model,partition,threshold,tn,fp,fn,tp
+dummy,test,0.5,7985,0,1058,0
+logistic_regression,test,0.16796284539462858,7144,841,631,427
+decision_tree,test,0.2586600685192234,7534,451,699,359
+random_forest,test,0.6112421038019304,7379,606,640,418
+mlp,test,0.1896097366729046,7278,707,648,410

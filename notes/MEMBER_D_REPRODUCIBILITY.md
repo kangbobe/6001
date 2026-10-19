@@ -1,4 +1,49 @@
+# Member D — current saved-result reproduction
+
+The final Test evaluation is complete. Current reproduction is limited to checking saved results or deriving presentation materials from them. Do not run the final evaluator, any real Test inference, validation analysis, training, tuning, calibration, or threshold/model selection as part of this delivery repair.
+
+Use the original locked Python environment, from the repository root, and choose a new output file for every audit:
+
+```bash
+python scripts/audit_saved_results.py --root . --output work/audit-check-001.json
+```
+
+`--output` is mandatory. The safe entry refuses existing files and frozen output locations, including resolved symlink destinations. It uses the preserved independent saved-result calculations; it does not load raw records or model pipelines. The original `results/member_d/final_test/qa/independent_metrics_audit.py` and its adjacent JSON remain historical evidence and must not be executed directly because that old entry overwrites its adjacent JSON.
+
+The following is an optional **saved-result presentation derivation**, not Test evaluation. Its destination must be new. This delivery repair did not run it or regenerate existing analysis:
+
+```bash
+python scripts/report_final_results.py --root . --output work/final-report-reproduction
+```
+
+Current delivery scope and package/version identities are described in [DELIVERY_README.md](../DELIVERY_README.md). The saved [final report](FINAL_TEST_REPORT.md) supplies actual results; [DELIVERY_REPAIR.md](DELIVERY_REPAIR.md) distinguishes checks executed for this repair from retained logs. The full group report, slides and recording still require integration.
+
+## Evidence and historical scope
+
+The earlier validation run, 145 passing pre-test tests with one exclusion, runtime guards, protocol freeze and final invocation are supported by their retained logs/receipts. They were not rerun in this delivery repair. Retained logs record one final invocation; they cannot establish the absence of unrecorded executions. The final saved predictions, metrics and thresholds can be checked independently without inference. Original training-time source bytes were never captured; posthoc identities and later successful reproduction cannot fill that gap. No historical receipt or provenance was reconstructed.
+
+All error groups and permutation importances remain **validation** findings. Permutation bars describe shuffle standard deviations (`ddof=0`, ten repetitions), not confidence intervals. AP is recall-increment-weighted precision rather than trapezoidal PR area. RF ranking strength does not establish good probability quality; validation F1 is optimistic after threshold selection. Record-disjoint splits do not establish customer isolation or future-campaign generalization.
+
+The old final-result manifest is a historical snapshot and intentionally retains its old document hashes. Byte-exact versions of documents changed in this repair, plus their hashes, are preserved in [the documentation snapshot manifest](history/delivery-v1/SNAPSHOT_MANIFEST.json). The new delivery package has its own independent manifest.
+
+<details>
+<summary>Historical snapshot: original validation handoff and final-evaluation delivery instructions. Retained for provenance; commands below are not current repair steps.</summary>
+
 # Member D reproducibility and approval handoff
+
+## Current final-evaluation state
+
+The user explicitly approved the protocol and one final evaluation after preflight hardening. The eight reviewed hardening files were committed locally as `ab46dfa884bd929f72ed76d50628cee1defab389`. All required pre-test checks passed (145 tests; one legacy full-table-loader test excluded), and the protocol was frozen at `2026-10-19T08:18:48.589180+00:00` for owner `Member D (kangbobe)`. The existing final entry point ran exactly once and completed at `2026-10-19T08:18:59.733642+00:00`. No retraining, threshold change, test-driven selection, push or merge occurred.
+
+See [FINAL_TEST_REPORT.md](FINAL_TEST_REPORT.md) for actual scores, validation/test comparisons, figures, independent arithmetic checks and complete hashes. The four one-shot outputs are preserved under `results/experiment/final_test/`. The 99 protected pre-existing files remain unchanged. The original proposal and historical receipts remain intact; approved status is recorded in the separate `config/final_protocol.json` and final receipt.
+
+Do not invoke the final evaluator again. Only the reporting derivation may be reproduced from saved predictions, in a fresh destination:
+
+```bash
+python scripts/report_final_results.py --root . --output work/final-report-reproduction
+```
+
+The sections below document the original validation delivery and its historical approval boundary. Validation analysis reproduction still requires a separate checkout at `29657cf`; the new final results do not erase the historical source-identity limitation.
 
 ## Original validation delivery at `29657cf`
 
@@ -55,10 +100,12 @@ Before final output generation, review also added rejection of destinations with
 - `importance/permutation_repeats.csv`, `permutation_summary.csv`, `figures/`: all 10 AP drops for every feature/model and shuffle SDs (`ddof=0`).
 - `config/final_protocol.proposed.json`: exact thresholds, unchanged pipeline hashes, input identities, primary/report metrics and validation-receipt identity. It remains `frozen=false` with blank owner/freeze time and explicit approval-pending status.
 
-## Approval boundary and later integration
+## Original approval boundary and later integration
 
 The proposal is ready for explicit review. F1 was selected as an academic precision/recall compromise without business costs; maximum validation F1 is not profit-optimal or an unbiased generalization estimate. RF's prior training-CV recommendation is preserved; all five models remain in the final comparison.
 
 Only after explicit approval: enter the accountable Member D owner and actual timezone-aware freeze time, retain all exact thresholds/model identities, set `approval_status="approved"` and `frozen=true`, and save a separate `config/final_protocol.json`. The hardened gate now automatically checks input/model identities, the validation configuration and receipt, and consistency with the unchanged proposal. It refuses missing, malformed or inconsistent required evidence before any test loading. Use the hardened checkout for the eventual final evaluation. The one-shot final evaluator must retain its success or failure directory. Do not alter hyperparameters, thresholds, features, model identities or included families based on any test outcome.
 
-This delivery intentionally stops before those approval-dependent actions. The final ten-section, ten-page CA6001 report still needs group integration and approved test evidence; `MEMBER_D_REPORT.md` supplies validation-supported text, not a fabricated completed final report.
+The original validation delivery stopped before those approval-dependent actions. They have now been explicitly authorized and completed as recorded above. The final ten-section, ten-page CA6001 report still needs group integration: `MEMBER_D_REPORT.md` supplies the preserved validation material and `FINAL_TEST_REPORT.md` supplies actual approved test evidence and discussion.
+
+</details>

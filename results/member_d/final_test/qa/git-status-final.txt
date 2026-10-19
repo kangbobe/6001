@@ -1,0 +1,52 @@
+On branch member-d/validation-integration
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+	modified:   notes/MEMBER_D_REPRODUCIBILITY.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	config/final_protocol.json
+	notes/FINAL_TEST_REPORT.md
+	results/experiment/final_test/evaluation_receipt.json
+	results/experiment/final_test/frozen_protocol.json
+	results/experiment/final_test/test_metrics.csv
+	results/experiment/final_test/test_predictions.csv
+	results/member_d/final_test/SHA256SUMS.json
+	results/member_d/final_test/confusion_matrices.csv
+	results/member_d/final_test/derivation_receipt.json
+	results/member_d/final_test/figures/test_confusion_matrices.png
+	results/member_d/final_test/figures/test_confusion_matrices.svg
+	results/member_d/final_test/figures/test_roc_pr.png
+	results/member_d/final_test/figures/test_roc_pr.svg
+	results/member_d/final_test/figures/validation_test_comparison.png
+	results/member_d/final_test/figures/validation_test_comparison.svg
+	results/member_d/final_test/pr_points.csv
+	results/member_d/final_test/qa/README.md
+	results/member_d/final_test/qa/completion-verification.json
+	results/member_d/final_test/qa/final-evaluation.log
+	results/member_d/final_test/qa/final-invocation.json
+	results/member_d/final_test/qa/git-status-final.txt
+	results/member_d/final_test/qa/guarded-suite-access.json
+	results/member_d/final_test/qa/guarded-suite.xml
+	results/member_d/final_test/qa/hardening-commit.txt
+	results/member_d/final_test/qa/independent-metrics-audit.log
+	results/member_d/final_test/qa/independent_metrics_audit.json
+	results/member_d/final_test/qa/independent_metrics_audit.py
+	results/member_d/final_test/qa/postrun-integrity.json
+	results/member_d/final_test/qa/pretest-suite.log
+	results/member_d/final_test/qa/pretest-verification.json
+	results/member_d/final_test/qa/pretest-verification.log
+	results/member_d/final_test/qa/protocol-freeze.json
+	results/member_d/final_test/qa/report-generation.log
+	results/member_d/final_test/qa/reporting-smoke.log
+	results/member_d/final_test/qa/review-before-commit.json
+	results/member_d/final_test/qa/run_guarded_suite.py
+	results/member_d/final_test/qa/smoke_reporting.py
+	results/member_d/final_test/qa/verify_pretest.py
+	results/member_d/final_test/roc_points.csv
+	results/member_d/final_test/validation_test_comparison.csv
+	scripts/report_final_results.py
+
+no changes added to commit (use "git add" and/or "git commit -a")

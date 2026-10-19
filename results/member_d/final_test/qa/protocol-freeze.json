@@ -1,0 +1,52 @@
+{
+  "status": "approved_and_frozen",
+  "recorded_utc": "2026-10-19T08:18:48.597759+00:00",
+  "owner": "Member D (kangbobe)",
+  "frozen_at": "2026-10-19T08:18:48.589180+00:00",
+  "approval_status": "approved",
+  "approval_source": "Explicit human user instruction in this conversation: I explicitly authorize one final test evaluation using the frozen protocol.",
+  "hardening_commit": "ab46dfa884bd929f72ed76d50628cee1defab389",
+  "frozen_protocol_sha256": "708f9d126723ffa71961fe2d81924157c5c3c12d95c3d39c9dd43658bf73de4f",
+  "proposal_sha256": "021a969059e88958112d1e9278ea8b83df53027e807b66cd2b6741f9af91392b",
+  "experimental_fields_unchanged": [
+    "decision_rule",
+    "feature_policy",
+    "models",
+    "thresholds",
+    "pipeline_sha256",
+    "primary_metric",
+    "report_metrics",
+    "cv_recommended_family",
+    "validation_analysis_config_sha256",
+    "validation_receipt_sha256",
+    "input_sha256"
+  ],
+  "thresholds": {
+    "dummy": 0.5,
+    "logistic_regression": 0.16796284539462858,
+    "decision_tree": 0.2586600685192234,
+    "random_forest": 0.6112421038019304,
+    "mlp": 0.1896097366729046
+  },
+  "preflight": {
+    "status": "passed",
+    "approval_status": "approved",
+    "proposal_sha256": "021a969059e88958112d1e9278ea8b83df53027e807b66cd2b6741f9af91392b",
+    "input_sha256": {
+      "data/raw/bank-full.csv": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+      "data/splits/split_indices.json": "01909fad4322dbda27b72151e79c734dd6346e8d6a10bf1f89d01bd9c5f34aa2",
+      "data/splits/split_manifest.csv": "56d283f977937adf4f71b50102dbf3f9c15f923c68a3a7026da19680b1f1f1e1"
+    },
+    "pipeline_sha256": {
+      "dummy": "99b29a1291bc9f611b2804185cf5ac677ded444067dfc77ced1f918a867372ed",
+      "logistic_regression": "50e9576b511b3d795db7978590652927d4ccda4803ac89091e4f1f0f6308083e",
+      "decision_tree": "5b55394d1ca0c8766fd2380912025d183e2680d3bc7160248d260695e36989e2",
+      "random_forest": "89b93803937fc0726cdf1b73d75e2f4c47d50c56c1325797549b48a5928696aa",
+      "mlp": "a2d7dbcdb3392543242c2e38d48bb52b06f7f1ed481cea2a0ff52807fc3db92d"
+    },
+    "validation_analysis_config_sha256": "626a66c2b2b6de9a373046de8a23310387783cc93e87b4d99d06f9098f6084f2",
+    "validation_receipt_sha256": "bb7250339439162108f7bd20c3a30cd16df81c85b7c94d318e3c140a80c5d6c1",
+    "validation_thresholds_sha256": "0c037777160e068cee6a6a60639025f2e5c0ee231589bf8e2cae8133fa5fa518"
+  },
+  "real_test_partition_loaded": false
+}

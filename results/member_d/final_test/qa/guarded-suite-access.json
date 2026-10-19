@@ -1,0 +1,6 @@
+{
+  "pytest_exit_code": 0,
+  "blocked_access_attempts": [],
+  "protection": "builtins.open and io.open reject real raw bank-full.csv and five real pipeline.joblib paths",
+  "excluded": "tests/test_data.py::test_exact_split_coverage_and_partition_alignment"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-19T08:26:06.819884+00:00",
+  "protected_file_count": 99,
+  "all_original_protected_hashes_unchanged": true,
+  "core_final_outputs_unchanged_after_reporting": true,
+  "all_derived_output_and_source_hashes_verified": true,
+  "actual_final_evaluator_invocations": 1,
+  "real_evaluator_exit_code": 0,
+  "independent_metric_audit": "passed; maximum absolute error 1.1102230246251565e-16",
+  "figure_visual_inspection": "three PNG figures passed",
+  "unintended_worktree_changes": [],
+  "local_hardening_commit": "ab46dfa884bd929f72ed76d50628cee1defab389",
+  "final_artifacts_committed": false,
+  "push_or_merge_performed": false
+}

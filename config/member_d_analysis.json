@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "partition": "val",
+  "positive_class": 1,
+  "label_mapping": {"no": 0, "yes": 1},
+  "classification_rule": "p_yes >= threshold",
+  "threshold_objective": "maximum unweighted validation F1",
+  "threshold_candidates": "0, midpoints between adjacent distinct validation scores, 1; if a midpoint rounds to the lower score, use the upper score",
+  "threshold_tie_break": "highest candidate threshold among exactly equal rational F1 values",
+  "dummy_threshold": 0.5,
+  "primary_ranking_metric": "average_precision",
+  "family_recommendation_source": "unchanged training-CV AP recommendation in completion.json",
+  "permutation": {"scoring": "average_precision", "n_repeats": 10, "random_state": 42, "n_jobs": 1, "max_samples": 1.0, "std_ddof": 0},
+  "error_groups": {
+    "age": ["<30", "30-39", "40-49", "50-59", ">=60"],
+    "balance": ["<0", "0", "1-999", "1000-4999", ">=5000"],
+    "previous": ["0", "1", "2-4", ">=5"],
+    "pdays": ["no previous contact (-1)", "previous contact (>=0)"],
+    "categorical": ["job", "marital", "education", "default", "housing", "loan", "poutcome"],
+    "small_denominator_warning_below": 30
+  },
+  "test_evaluated": false,
+  "retraining_allowed": false,
+  "interpretation": "Development diagnostics; F1 tuned on these same validation rows is optimistic. No cost/profit optimum or causal inference is asserted."
+}

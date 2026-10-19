@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "partition": "val",
+  "checks": [
+    "all row IDs exactly match frozen validation order",
+    "row outcomes reconstruct confusion counts",
+    "all 11 group partitions reconcile to complete validation counts",
+    "threshold-independent metrics unchanged",
+    "550 permutation drops reconcile with 55 means and SDs",
+    "Dummy permutation importance is exactly zero",
+    "all stage output hashes valid",
+    "all CSVs/figures/threshold JSON reproduced byte-for-byte",
+    "all recorded source and protected artifact hashes match delivered files",
+    "all model state preservation guards passed",
+    "proposal is approval-pending and thresholds/receipt match",
+    "no final protocol or real final_test directory exists",
+    "all original tracked files except intentional README addition retain original hashes",
+    "every locked Python package version matches installed distribution"
+  ],
+  "original_tracked_files": 132,
+  "unchanged_original_files_excluding_readme": 131,
+  "locked_package_count": 68,
+  "reproduced_output_files": [
+    "evaluation/confusion_matrices.csv",
+    "evaluation/figures/confusion_matrices.png",
+    "evaluation/figures/roc_pr.png",
+    "evaluation/metrics.csv",
+    "evaluation/pr_points.csv",
+    "evaluation/roc_points.csv",
+    "evaluation/threshold_sweep.csv",
+    "evaluation/thresholds.json",
+    "errors/error_groups.csv",
+    "errors/figures/error_groups.png",
+    "errors/model_disagreements.csv",
+    "errors/row_errors.csv",
+    "importance/figures/permutation_importance.png",
+    "importance/permutation_repeats.csv",
+    "importance/permutation_summary.csv"
+  ],
+  "test_evaluated": false,
+  "pytest": {
+    "passed": 92,
+    "deselected": 1,
+    "deselected_test": "test_exact_split_coverage_and_partition_alignment",
+    "reason": "Original loader materializes the full raw table; stricter session boundary excludes it."
+  }
+}

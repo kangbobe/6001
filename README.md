@@ -99,3 +99,21 @@ py -3.12 -m venv .venv
 | `tests` | 与数据泄漏、对齐、指标及最终入口相关的行为检查 |
 
 复查结论和修改记录见 [PRO_REVIEW_RESOLUTION.md](notes/PRO_REVIEW_RESOLUTION.md)。模型建议不是训练证据，报告中的数字来自本地CSV/JSON。Pro 原始对话、截图、本地环境和临时文件不上传；方法、修订和本地验证证据已保留。数据引用和许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。`.gitattributes` 保留文件字节，避免跨系统换行转换破坏数据锁和实验文件校验。
+
+## Member D — validation evaluation and approval handoff (2026-10-19)
+
+Member D's validation-only work is in [report support](notes/MEMBER_D_REPORT.md),
+[methods](notes/MEMBER_D_METHODS.md), [audit](notes/MEMBER_D_AUDIT.md), and
+[reproduction instructions](notes/MEMBER_D_REPRODUCIBILITY.md).
+The original A/B/C artifacts and source are preserved. `results/member_d/` contains
+threshold searches, model comparisons, ROC/PR curves, confusion matrices, feature-group
+errors, repeated AP permutation importance, and identity/QA receipts.
+
+`config/final_protocol.proposed.json` contains the actual proposed thresholds but remains
+**frozen=false, pending explicit approval**. No real test evaluation has been run.
+The original `final_protocol.draft.json` is preserved as the A/B/C handoff record.
+Validation results must not be described as final-test performance.
+
+The D validation CLI uses a selective reader and never parses real test records.
+Its fresh reproduction commands and the explicitly excluded legacy full-table-loader
+test are documented in `notes/MEMBER_D_REPRODUCIBILITY.md`.

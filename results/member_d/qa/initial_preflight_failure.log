@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/lanmeidanta/Documents/Codex/2026-10-19/you-are-a-principal-machine-learning/work/6001/scripts/evaluate_validation.py", line 24, in <module>
+    main()
+  File "/Users/lanmeidanta/Documents/Codex/2026-10-19/you-are-a-principal-machine-learning/work/6001/scripts/evaluate_validation.py", line 18, in main
+    result = run_validation(stage=args.stage, output=args.output, protocol_output=args.protocol_output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lanmeidanta/Documents/Codex/2026-10-19/you-are-a-principal-machine-learning/work/6001/src/validation.py", line 227, in run_validation
+    X, y, predictions, models, checks = load_handoff(root)
+                                        ^^^^^^^^^^^^^^^^^^
+  File "/Users/lanmeidanta/Documents/Codex/2026-10-19/you-are-a-principal-machine-learning/work/6001/src/validation.py", line 175, in load_handoff
+    verify_input_identities(root)
+  File "/Users/lanmeidanta/Documents/Codex/2026-10-19/you-are-a-principal-machine-learning/work/6001/src/validation.py", line 50, in verify_input_identities
+    raise ValueError(f'Frozen input identity mismatch: {record["path"]}')
+ValueError: Frozen input identity mismatch: src/training.py

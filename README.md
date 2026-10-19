@@ -105,7 +105,7 @@ py -3.12 -m venv .venv
 Member D's validation-only work is in [report support](notes/MEMBER_D_REPORT.md),
 [methods](notes/MEMBER_D_METHODS.md), [audit](notes/MEMBER_D_AUDIT.md), and
 [reproduction instructions](notes/MEMBER_D_REPRODUCIBILITY.md).
-The original A/B/C artifacts and source are preserved. `results/member_d/` contains
+The validation delivery at `29657cf` preserved the original A/B/C artifacts and source. `results/member_d/` contains
 threshold searches, model comparisons, ROC/PR curves, confusion matrices, feature-group
 errors, repeated AP permutation importance, and identity/QA receipts.
 
@@ -117,3 +117,10 @@ Validation results must not be described as final-test performance.
 The D validation CLI uses a selective reader and never parses real test records.
 Its fresh reproduction commands and the explicitly excluded legacy full-table-loader
 test are documented in `notes/MEMBER_D_REPRODUCIBILITY.md`.
+
+The subsequent [final preflight hardening](notes/FINAL_PREFLIGHT_HARDENING.md) automatically
+checks the approved data, splits, five pipelines, validation configuration/receipt,
+and protocol consistency before any test loading. It requires explicit recorded
+approval and preserves the one-shot mechanism. The proposal and selected thresholds
+remain unchanged and unfrozen. Historical validation reproduction uses a separate
+checkout at `29657cf`; historical receipts have not been rewritten.

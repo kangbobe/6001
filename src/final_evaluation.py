@@ -7,7 +7,6 @@ import json
 import math
 from pathlib import Path
 import re
-import shutil
 
 import joblib
 import numpy as np
@@ -22,21 +21,52 @@ from src.metrics import binary_metrics
 MODEL_SET = ['dummy', 'logistic_regression', 'decision_tree', 'random_forest', 'mlp']
 FEATURE_POLICY = 'pre_campaign_history_flag_v1'
 SHA256_RE = re.compile(r'^[0-9a-fA-F]{64}$')
+INPUT_PATHS = (
+    'data/raw/bank-full.csv',
+    'data/splits/split_indices.json',
+    'data/splits/split_manifest.csv',
+)
+ANALYSIS_CONFIG = 'config/member_d_analysis.json'
+VALIDATION_RECEIPT = 'results/member_d/evaluation/receipt.json'
+PROPOSED_PROTOCOL = 'config/final_protocol.proposed.json'
+REPORT_METRICS = [
+    'n', 'positive_rate', 'threshold', 'average_precision', 'roc_auc', 'accuracy',
+    'balanced_accuracy', 'precision', 'recall', 'f1', 'brier_score', 'log_loss',
+    'tn', 'fp', 'fn', 'tp',
+]
+EXPERIMENT_FIELDS = (
+    'decision_rule', 'feature_policy', 'models', 'thresholds', 'pipeline_sha256',
+    'primary_metric', 'report_metrics', 'cv_recommended_family',
+    'validation_analysis_config_sha256', 'validation_receipt_sha256', 'input_sha256',
+)
 
 
 class EvaluationRefused(ValueError):
     """Raised when a final-test precondition is not satisfied."""
 
 
-def _read_json(path: Path) -> dict:
+def _read_json_snapshot(path: Path) -> tuple[dict, bytes]:
+    """Parse exactly the bytes whose identity will be checked or saved."""
+    def unique_keys(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise EvaluationRefused(f'Duplicate JSON key {key!r} in {path}')
+            result[key] = value
+        return result
+
     try:
-        with path.open('r', encoding='utf-8') as stream:
-            value = json.load(stream)
-    except (OSError, json.JSONDecodeError) as exc:
+        content = path.read_bytes()
+        value = json.loads(content, object_pairs_hook=unique_keys)
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
         raise EvaluationRefused(f'Cannot read valid JSON from {path}: {exc}') from exc
     if not isinstance(value, dict):
         raise EvaluationRefused(f'Expected a JSON object in {path}')
-    return value
+    return value, content
+
+
+def _read_json(path: Path) -> dict:
+    return _read_json_snapshot(path)[0]
 
 
 def _nonblank(value) -> bool:
@@ -46,6 +76,8 @@ def _nonblank(value) -> bool:
 def _validate_protocol(protocol: dict) -> dict[str, float]:
     if protocol.get('frozen') is not True:
         raise EvaluationRefused('Protocol must set frozen to true')
+    if protocol.get('approval_status') != 'approved':
+        raise EvaluationRefused('Protocol approval_status must explicitly equal "approved"')
     if not _nonblank(protocol.get('owner')):
         raise EvaluationRefused('Protocol owner must be nonblank')
     frozen_at = protocol.get('frozen_at')
@@ -89,10 +121,120 @@ def _validate_protocol(protocol: dict) -> dict[str, float]:
 
 def _sha256(path: Path) -> str:
     digest = hashlib.sha256()
-    with path.open('rb') as stream:
-        for block in iter(lambda: stream.read(1024 * 1024), b''):
-            digest.update(block)
+    try:
+        with path.open('rb') as stream:
+            for block in iter(lambda: stream.read(1024 * 1024), b''):
+                digest.update(block)
+    except OSError as exc:
+        raise EvaluationRefused(f'Cannot hash required identity {path}: {exc}') from exc
     return digest.hexdigest()
+
+
+def _require_digest(actual: str, expected, label: str) -> None:
+    if not isinstance(expected, str) or not SHA256_RE.fullmatch(expected):
+        raise EvaluationRefused(f'Missing or invalid SHA256 for {label}')
+    if actual.lower() != expected.lower():
+        raise EvaluationRefused(f'SHA256 mismatch for {label}')
+
+
+def _validate_approved_identities(root: Path, experiment: Path, protocol: dict) -> dict:
+    """Authenticate the validation evidence without parsing any raw data rows.
+
+    The reviewed proposal is the local approval baseline. Freezing may change only
+    authorization fields and notes; experiment identities/settings stay identical.
+    Approval is a recorded human decision, not a cryptographic authentication system.
+    """
+    proposal, proposal_bytes = _read_json_snapshot(root / PROPOSED_PROTOCOL)
+    allowed_fields = set(EXPERIMENT_FIELDS) | {
+        'frozen', 'owner', 'frozen_at', 'approval_status', 'notes',
+    }
+    if set(protocol) - allowed_fields:
+        raise EvaluationRefused('Protocol contains unsupported fields')
+    for field in EXPERIMENT_FIELDS:
+        if field not in proposal or field not in protocol or protocol[field] != proposal[field]:
+            raise EvaluationRefused(f'Protocol differs from reviewed proposal: {field}')
+
+    inputs = protocol['input_sha256']
+    if not isinstance(inputs, dict) or set(inputs) != set(INPUT_PATHS):
+        raise EvaluationRefused('Protocol input_sha256 must contain exactly the three frozen inputs')
+    for relative in INPUT_PATHS:
+        # Opaque byte hashing only: no CSV parsing, labels or partition selection.
+        _require_digest(_sha256(root / relative), inputs[relative], relative)
+
+    config, config_bytes = _read_json_snapshot(root / ANALYSIS_CONFIG)
+    config_digest = hashlib.sha256(config_bytes).hexdigest()
+    _require_digest(config_digest, protocol['validation_analysis_config_sha256'], ANALYSIS_CONFIG)
+    required_config = {
+        'schema_version': 1, 'partition': 'val', 'positive_class': 1,
+        'label_mapping': {'no': 0, 'yes': 1},
+        'classification_rule': 'p_yes >= threshold',
+        'threshold_objective': 'maximum unweighted validation F1',
+        'dummy_threshold': 0.5, 'primary_ranking_metric': 'average_precision',
+    }
+    for key, expected in required_config.items():
+        if config.get(key) != expected:
+            raise EvaluationRefused(f'Validation analysis configuration is inconsistent: {key}')
+    if config.get('test_evaluated') is not False or config.get('retraining_allowed') is not False:
+        raise EvaluationRefused('Validation configuration must prohibit test evaluation and retraining')
+    if protocol['primary_metric'] != config['primary_ranking_metric']:
+        raise EvaluationRefused('Protocol primary metric disagrees with validation configuration')
+    if protocol['report_metrics'] != REPORT_METRICS:
+        raise EvaluationRefused('Protocol report_metrics must match the complete final metric schema')
+
+    receipt, receipt_bytes = _read_json_snapshot(root / VALIDATION_RECEIPT)
+    receipt_digest = hashlib.sha256(receipt_bytes).hexdigest()
+    _require_digest(receipt_digest, protocol['validation_receipt_sha256'], VALIDATION_RECEIPT)
+    for key, expected in {'status': 'complete', 'stage': 'evaluation', 'partition': 'val',
+                          'positive_class': 1}.items():
+        if receipt.get(key) != expected:
+            raise EvaluationRefused(f'Validation evaluation receipt is inconsistent: {key}')
+    for key, expected in {
+        'protected_files_unchanged': True, 'in_memory_models_unchanged': True,
+        'fit_methods_blocked': True, 'test_rows_parsed': False,
+        'test_predictions_or_metrics_computed': False,
+    }.items():
+        if receipt.get(key) is not expected:
+            raise EvaluationRefused(f'Validation evaluation receipt must certify {key}={expected}')
+    _require_digest(config_digest, receipt.get('analysis_config_sha256'), 'receipt analysis configuration')
+    if receipt.get('thresholds') != protocol['thresholds']:
+        raise EvaluationRefused('Protocol thresholds disagree with validation receipt')
+
+    protected = receipt.get('protected_files_before')
+    if not isinstance(protected, dict):
+        raise EvaluationRefused('Validation receipt must contain protected input/model identities')
+    for relative in INPUT_PATHS:
+        _require_digest(inputs[relative], protected.get(relative), f'receipt {relative}')
+    # Bind metadata as well as model bytes to the actual validation experiment.
+    experiment_files = ['completion.json', 'run_protocol.json']
+    for name in MODEL_SET:
+        key = f'results/experiment/{name}/pipeline.joblib'
+        _require_digest(protocol['pipeline_sha256'][name], protected.get(key), f'receipt {key}')
+        experiment_files.append(f'{name}/model_metadata.json')
+    for relative in experiment_files:
+        key = f'results/experiment/{relative}'
+        _require_digest(_sha256(experiment / relative), protected.get(key), key)
+    completion = _read_json(experiment / 'completion.json')
+    if protocol['cv_recommended_family'] not in MODEL_SET[1:] or (
+            completion.get('cv_recommended_family') != protocol['cv_recommended_family']):
+        raise EvaluationRefused('Protocol CV family disagrees with the validation experiment')
+
+    selected, selected_bytes = _read_json_snapshot(
+        root / 'results/member_d/evaluation/thresholds.json')
+    outputs = receipt.get('outputs_sha256')
+    if not isinstance(outputs, dict):
+        raise EvaluationRefused('Validation receipt must identify its threshold output')
+    _require_digest(hashlib.sha256(selected_bytes).hexdigest(), outputs.get('thresholds.json'),
+                    'validation thresholds.json')
+    if selected != protocol['thresholds']:
+        raise EvaluationRefused('Protocol thresholds disagree with the validation threshold output')
+    return {
+        'status': 'passed', 'approval_status': protocol['approval_status'],
+        'proposal_sha256': hashlib.sha256(proposal_bytes).hexdigest(),
+        'input_sha256': dict(inputs), 'pipeline_sha256': dict(protocol['pipeline_sha256']),
+        'validation_analysis_config_sha256': config_digest,
+        'validation_receipt_sha256': receipt_digest,
+        'validation_thresholds_sha256': hashlib.sha256(selected_bytes).hexdigest(),
+    }
 
 
 def _validate_experiment(experiment: Path, protocol: dict) -> None:
@@ -127,10 +269,11 @@ def _validate_experiment(experiment: Path, protocol: dict) -> None:
 
 
 def run_final_evaluation(*, unlock_test: bool, protocol_path, experiment_path=None,
-                         load_partition_fn=None, features=None, model_loader=None):
+                         load_partition_fn=None, features=None, model_loader=None,
+                         project_root=None):
     """Validate frozen artifacts, then evaluate each saved pipeline exactly once.
 
-    Optional loader/features/model_loader arguments exist for isolated synthetic tests;
+    Optional loader/features/model_loader/project_root arguments support synthetic tests;
     production defaults are imported lazily so preflight never touches the test data.
     """
     if unlock_test is not True:
@@ -138,16 +281,17 @@ def run_final_evaluation(*, unlock_test: bool, protocol_path, experiment_path=No
     if protocol_path is None:
         raise EvaluationRefused('A frozen protocol path is required')
     protocol_path = Path(protocol_path)
-    protocol = _read_json(protocol_path)
+    protocol, protocol_bytes = _read_json_snapshot(protocol_path)
     thresholds = _validate_protocol(protocol)
 
+    root = Path(project_root) if project_root is not None else Path(__file__).resolve().parents[1]
     if experiment_path is None:
-        from src.data import ROOT
-        experiment_path = ROOT / 'results/experiment'
+        experiment_path = root / 'results/experiment'
     experiment = Path(experiment_path)
     if not experiment.is_dir():
         raise EvaluationRefused(f'Experiment directory does not exist: {experiment}')
     _validate_experiment(experiment, protocol)
+    preflight = _validate_approved_identities(root, experiment, protocol)
 
     final_dir = experiment / 'final_test'
     if final_dir.exists():
@@ -160,7 +304,8 @@ def run_final_evaluation(*, unlock_test: bool, protocol_path, experiment_path=No
     if load_partition_fn is None or features is None:
         from src.data import FEATURES, load_partition
         if load_partition_fn is None:
-            load_partition_fn = load_partition
+            def load_partition_fn(name, *, allow_test=False):
+                return load_partition(name, allow_test=allow_test, root=root)
         if features is None:
             features = FEATURES
     if model_loader is None:
@@ -196,7 +341,8 @@ def run_final_evaluation(*, unlock_test: bool, protocol_path, experiment_path=No
         predictions[f'{name}_p_yes'] = p_yes
         predictions[f'{name}_prediction'] = (p_yes >= threshold).astype(int)
 
-    shutil.copyfile(protocol_path, final_dir / 'frozen_protocol.json')
+    # Save the approved bytes we actually validated, not a potentially edited file.
+    (final_dir / 'frozen_protocol.json').write_bytes(protocol_bytes)
     pd.DataFrame(metric_rows).to_csv(final_dir / 'test_metrics.csv', index=False)
     predictions.to_csv(final_dir / 'test_predictions.csv', index=False)
     receipt = {
@@ -209,6 +355,7 @@ def run_final_evaluation(*, unlock_test: bool, protocol_path, experiment_path=No
         'protocol_sha256': _sha256(final_dir / 'frozen_protocol.json'),
         'pipeline_sha256': dict(protocol['pipeline_sha256']),
         'thresholds': thresholds,
+        'preflight': preflight,
         'outputs': ['frozen_protocol.json', 'test_metrics.csv', 'test_predictions.csv'],
     }
     (final_dir / 'evaluation_receipt.json').write_text(

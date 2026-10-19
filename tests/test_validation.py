@@ -383,7 +383,7 @@ def test_stage_preserves_failure_and_refuses_success_receipt_if_inputs_change(tm
         validation.run_validation(stage='errors', output=output, root=root)
 
 
-def _synthetic_final_fixture(tmp_path):
+def _synthetic_final_fixture(tmp_path, synthetic_approval):
     experiment = tmp_path / 'synthetic_experiment'
     experiment.mkdir()
     hashes = {}
@@ -413,25 +413,27 @@ def _synthetic_final_fixture(tmp_path):
         'models': MODEL_SET, 'thresholds': {name: .5 for name in MODEL_SET},
         'pipeline_sha256': hashes,
     }), encoding='utf-8')
+    approved = synthetic_approval(tmp_path, experiment, json.loads(protocol.read_bytes()))
+    protocol.write_text(json.dumps(approved), encoding='utf-8')
     X = pd.DataFrame({'age': [20, 30, 40, 50]}, index=[11, 12, 13, 14])
     y = pd.Series([0, 1, 0, 1], index=X.index)
     return experiment, protocol, X, y
 
 
-def test_final_gate_rejects_label_misalignment_before_any_model_inference(tmp_path):
-    experiment, protocol, X, y = _synthetic_final_fixture(tmp_path)
+def test_final_gate_rejects_label_misalignment_before_any_model_inference(tmp_path, synthetic_approval):
+    experiment, protocol, X, y = _synthetic_final_fixture(tmp_path, synthetic_approval)
     model_calls = []
     with pytest.raises(ValueError, match='aligned'):
         run_final_evaluation(
-            unlock_test=True, protocol_path=protocol, experiment_path=experiment,
+            unlock_test=True, protocol_path=protocol, experiment_path=experiment, project_root=tmp_path,
             load_partition_fn=lambda *args, **kwargs: (X, y.iloc[::-1]),
             features=['age'], model_loader=lambda path: model_calls.append(path))
     assert model_calls == []
     assert (experiment / 'final_test').is_dir()
 
 
-def test_final_gate_rejects_wrong_class_order_and_preserves_failed_attempt(tmp_path):
-    experiment, protocol, X, y = _synthetic_final_fixture(tmp_path)
+def test_final_gate_rejects_wrong_class_order_and_preserves_failed_attempt(tmp_path, synthetic_approval):
+    experiment, protocol, X, y = _synthetic_final_fixture(tmp_path, synthetic_approval)
 
     class ReversedClasses:
         classes_ = np.array([1, 0])
@@ -440,7 +442,7 @@ def test_final_gate_rejects_wrong_class_order_and_preserves_failed_attempt(tmp_p
             raise AssertionError('Class guard must reject before inference')
 
     kwargs = dict(
-        unlock_test=True, protocol_path=protocol, experiment_path=experiment,
+        unlock_test=True, protocol_path=protocol, experiment_path=experiment, project_root=tmp_path,
         load_partition_fn=lambda *args, **kw: (X, y), features=['age'],
         model_loader=lambda path: ReversedClasses())
     with pytest.raises(ValueError, match='classes'):

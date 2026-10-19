@@ -1,14 +1,16 @@
 # Member D reproducibility and approval handoff
 
-## Delivered state
+## Original validation delivery at `29657cf`
 
 Base commit `bf53eab1ef5f1fb5729af38660b76af54497bdab`; isolated branch `member-d/validation-integration`. No remote push or final test run is part of this delivery. Original A/B/C code, data, models, splits and experiment outputs are preserved; README receives an additive pointer to D materials.
+
+The later authorized preflight changes are documented in [FINAL_PREFLIGHT_HARDENING.md](FINAL_PREFLIGHT_HARDENING.md). They change the final evaluator and synthetic tests, with all frozen artifacts and existing validation results preserved. The historical source-identity check remains strict: to reproduce the existing validation receipts, use a separate checkout of `29657cf`. The hardened checkout intentionally fails the old handoff source check because `src/final_evaluation.py` has changed. No historical receipt is edited to conceal that difference.
 
 Analysis uses Python 3.12.14 on macOS arm64 with all **68 exact versions** in the original `requirements.lock.txt`. A/B/C used Python 3.12.10 on Windows. The patch-version/platform difference is disclosed, not represented as an identical historical environment. All five fitted pipelines reproduce the saved validation scores to maximum absolute difference **2.220446049250313e-16**, original metrics agree within 1e-12, and all selected-threshold classifications agree exactly. No dependency lock is changed. `pip check` reports no broken requirements; its cache-permission warning is unrelated to package compatibility.
 
 ## Reproduce in a fresh Python 3.12 environment
 
-From the repository root, install the original dependency lock into a local environment (for example `python3.12 -m venv .venv`, then the environment's `python -m pip install -r requirements.lock.txt`). On Windows use `.venv\Scripts\python.exe` in place of `python`; on macOS/Linux activate `.venv` or use `.venv/bin/python`.
+In the separate `29657cf` checkout, install the original dependency lock into a local environment (for example `python3.12 -m venv .venv`, then the environment's `python -m pip install -r requirements.lock.txt`). On Windows use `.venv\Scripts\python.exe` in place of `python`; on macOS/Linux activate `.venv` or use `.venv/bin/python`.
 
 The delivered result directories deliberately refuse overwrite. Use a new output directory and a new proposal path for every reproduction:
 
@@ -23,7 +25,7 @@ No training script or final-test CLI is needed. The validation CLI has no test-u
 
 The one deselected legacy test calls A's full-table loader. D's stricter task boundary excludes that call because it materializes test rows before slicing train. All remaining original tests and the new tests were run. Synthetic legacy tests exercise training/final-evaluation control flow on tiny synthetic data; they do not retrain project pipelines or access real test records. D's new selective-loader tests separately cover row order, identity rejection, label alignment, and exclusion of invalid non-validation bytes from decoding/parsing.
 
-## Actual checks performed
+## Checks performed for the original validation delivery
 
 - Initial legacy checks: **29 passed, 1 deselected**.
 - New tests: **63 passed** (51 validation/protocol/guard cases and 12 diagnostic cases).
@@ -57,6 +59,6 @@ Before final output generation, review also added rejection of destinations with
 
 The proposal is ready for explicit review. F1 was selected as an academic precision/recall compromise without business costs; maximum validation F1 is not profit-optimal or an unbiased generalization estimate. RF's prior training-CV recommendation is preserved; all five models remain in the final comparison.
 
-Only after explicit approval: enter the accountable Member D owner and actual timezone-aware freeze time, retain all exact thresholds/model identities, set the status to approved and `frozen=true`, and save a separate `config/final_protocol.json`. Verify all proposed data/configuration/source/receipt hashes against the delivered files before the existing final gate is used. Its current implementation enforces pipeline hashes but does not enforce the proposal's extra input/configuration hashes. These additional identities must therefore be checked in the approval preflight. The existing one-shot final evaluator must retain its success or failure directory. Do not alter hyperparameters, thresholds, features, model identities or included families based on any test outcome.
+Only after explicit approval: enter the accountable Member D owner and actual timezone-aware freeze time, retain all exact thresholds/model identities, set `approval_status="approved"` and `frozen=true`, and save a separate `config/final_protocol.json`. The hardened gate now automatically checks input/model identities, the validation configuration and receipt, and consistency with the unchanged proposal. It refuses missing, malformed or inconsistent required evidence before any test loading. Use the hardened checkout for the eventual final evaluation. The one-shot final evaluator must retain its success or failure directory. Do not alter hyperparameters, thresholds, features, model identities or included families based on any test outcome.
 
 This delivery intentionally stops before those approval-dependent actions. The final ten-section, ten-page CA6001 report still needs group integration and approved test evidence; `MEMBER_D_REPORT.md` supplies validation-supported text, not a fabricated completed final report.

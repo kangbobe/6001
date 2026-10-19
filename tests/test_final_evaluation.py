@@ -24,7 +24,7 @@ def _digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _fixture(tmp_path):
+def _fixture(tmp_path, synthetic_approval):
     experiment = tmp_path / 'experiment'
     experiment.mkdir()
     (experiment / 'run_protocol.json').write_text(
@@ -53,6 +53,7 @@ def _fixture(tmp_path):
             name: _digest(experiment / name / 'pipeline.joblib') for name in MODEL_SET
         },
     }
+    synthetic_approval(tmp_path, experiment, protocol)
     protocol_path = tmp_path / 'protocol.json'
     _write_json(protocol_path, protocol)
     return experiment, protocol_path, protocol
@@ -65,11 +66,11 @@ def _run(experiment, protocol_path, partition_calls, **kwargs):
 
     return run_final_evaluation(
         unlock_test=True, protocol_path=protocol_path, experiment_path=experiment,
-        load_partition_fn=fake_loader, features=FEATURES, **kwargs)
+        load_partition_fn=fake_loader, features=FEATURES, project_root=experiment.parent, **kwargs)
 
 
-def test_default_lock_refuses_before_loading_test(tmp_path):
-    experiment, protocol_path, _ = _fixture(tmp_path)
+def test_default_lock_refuses_before_loading_test(tmp_path, synthetic_approval):
+    experiment, protocol_path, _ = _fixture(tmp_path, synthetic_approval)
     calls = []
     with pytest.raises(EvaluationRefused, match='explicit --unlock-test'):
         run_final_evaluation(unlock_test=False, protocol_path=protocol_path,
@@ -85,8 +86,8 @@ def test_default_lock_refuses_before_loading_test(tmp_path):
     (lambda p: p['thresholds'].__setitem__('mlp', 1.01), 'finite number'),
     (lambda p: p['pipeline_sha256'].__setitem__('mlp', '0' * 64), 'SHA256 mismatch'),
 ])
-def test_invalid_protocol_refuses_before_loading_test(tmp_path, mutate, message):
-    experiment, protocol_path, protocol = _fixture(tmp_path)
+def test_invalid_protocol_refuses_before_loading_test(tmp_path, synthetic_approval, mutate, message):
+    experiment, protocol_path, protocol = _fixture(tmp_path, synthetic_approval)
     mutate(protocol)
     _write_json(protocol_path, protocol)
     calls = []
@@ -96,8 +97,8 @@ def test_invalid_protocol_refuses_before_loading_test(tmp_path, mutate, message)
     assert not (experiment / 'final_test').exists()
 
 
-def test_completion_marker_cannot_hide_missing_model_artifact(tmp_path):
-    experiment, protocol_path, _ = _fixture(tmp_path)
+def test_completion_marker_cannot_hide_missing_model_artifact(tmp_path, synthetic_approval):
+    experiment, protocol_path, _ = _fixture(tmp_path, synthetic_approval)
     (experiment / 'random_forest' / 'model_metadata.json').unlink()
     calls = []
     with pytest.raises(EvaluationRefused, match='incomplete'):
@@ -105,8 +106,8 @@ def test_completion_marker_cannot_hide_missing_model_artifact(tmp_path):
     assert calls == []
 
 
-def test_success_writes_metrics_predictions_and_receipt_from_synthetic_data(tmp_path):
-    experiment, protocol_path, _ = _fixture(tmp_path)
+def test_success_writes_metrics_predictions_and_receipt_from_synthetic_data(tmp_path, synthetic_approval):
+    experiment, protocol_path, _ = _fixture(tmp_path, synthetic_approval)
     calls = []
     final_dir = _run(experiment, protocol_path, calls)
 
@@ -126,8 +127,8 @@ def test_success_writes_metrics_predictions_and_receipt_from_synthetic_data(tmp_
     assert receipt['thresholds']['dummy'] == 0.5
 
 
-def test_existing_final_output_refuses_to_overwrite(tmp_path):
-    experiment, protocol_path, _ = _fixture(tmp_path)
+def test_existing_final_output_refuses_to_overwrite(tmp_path, synthetic_approval):
+    experiment, protocol_path, _ = _fixture(tmp_path, synthetic_approval)
     final_dir = experiment / 'final_test'
     final_dir.mkdir()
     calls = []
